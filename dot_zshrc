@@ -231,9 +231,9 @@ alias egrep='grep -E --color=auto'
 alias hw='hwinfo --short'                               # Hardware Info
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
 alias cmcd='chezmoi cd'
-alias cmadd='chezmoi add'
+alias cmad='chezmoi add'
 alias cmu='chezmoi update'
-alias cmapp='chezmoi apply'
+alias cmap='chezmoi apply'
 alias cme='chezmoi edit'
 alias cms='chezmoi status'
 alias cmd='chezmoi doctor'
