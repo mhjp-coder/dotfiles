@@ -1,0 +1,16 @@
+[Show]
+compressfileitemaction=true
+extract=true
+extract_7z=false
+extract_ace=false
+extract_bzip=false
+extract_gzip=false
+extract_rar=false
+extract_tar=false
+extract_tar_gz=false
+extractfileitemaction=true
+forgetfileitemaction=false
+kactivitymanagerd_fileitem_linking_plugin=false
+mountisoaction=true
+sharefileitemaction=true
+tagsfileitemaction=false
