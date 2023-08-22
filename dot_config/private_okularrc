@@ -1,0 +1,23 @@
+[Desktop Entry]
+FullScreen=false
+
+[General]
+LockSidebar=true
+ShowSidebar=true
+
+[MainWindow]
+2 screens: Window-Maximized=true
+State=AAAA/wAAAAD9AAAAAQAAAAAAAADIAAADofwCAAAAAfsAAAAcAG8AawB1AGwAYQByAF8AcwBpAGQAZQBiAGEAcgEAAABTAAADoQAAARYA///+AAADOgAAA6EAAAAEAAAABAAAAAgAAAAI/AAAAAMAAAABAAAAAQAAACwAcQB1AGkAYwBrAEEAbgBuAG8AdABhAHQAaQBvAG4AVABvAG8AbABCAGEAcgIAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAAiAGEAbgBuAG8AdABhAHQAaQBvAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+
+[Recent Files]
+File1[$e]=$HOME/Downloads/themes/kora-green-1-6-0/kora_green/kora-green/index.theme
+File2[$e]=$HOME/Documents/Electronics/atx.pdf
+File3[$e]=$HOME/Documents/Electronics/Asus Prime Z390-A Rev1.02 (60MB0YT0-MB0A01).pdf
+File4[$e]=$HOME/Developer/key
+File5[$e]=$HOME/Downloads/themes/Layan-Dark/index.theme
+Name1[$e]=index.theme
+Name2[$e]=atx.pdf
+Name3[$e]=Asus Prime Z390-A Rev1.02 (60MB0YT0-MB0A01).pdf
+Name4[$e]=key
+Name5[$e]=index.theme
