@@ -129,7 +129,7 @@ alias egrep='grep -E --color=auto'
 alias hw='hwinfo --short'                               # Hardware Info		# List amount of -git packages
 # Chezmoi
 alias czcd='chezmoi cd'
-alias czad='chezmoi add '
+alias cza='chezmoi add '
 alias czu='chezmoi update'
 alias czap='chezmoi apply'
 alias cze='chezmoi edit --apply '
