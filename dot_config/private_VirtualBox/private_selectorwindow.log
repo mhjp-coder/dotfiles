@@ -1,0 +1,21 @@
+00:00:00.359488 VirtualBox GUI VM Selector Window 7.0.10 r158379 linux.amd64 (Aug 11 2023 12:19:51) release log
+00:00:00.359490 Log opened 2023-08-16T04:53:11.071151000Z
+00:00:00.359490 Build Type: release
+00:00:00.359492 OS Product: Linux
+00:00:00.359493 OS Release: 6.4.10-arch1-1
+00:00:00.359494 OS Version: #1 SMP PREEMPT_DYNAMIC Fri, 11 Aug 2023 11:03:36 +0000
+00:00:00.359514 DMI Product Name: iMac14,2
+00:00:00.359521 DMI Product Version: 1.0
+00:00:00.359524 Firmware type: UEFI
+00:00:00.359532 Secure Boot: Disabled
+00:00:00.359560 Host RAM: 15938MB (15.5GB) total, 13629MB (13.3GB) available
+00:00:00.359563 Executable: /usr/lib/virtualbox/VirtualBox
+00:00:00.359563 Process ID: 8254
+00:00:00.359564 Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.359587 Qt version: 5.15.10
+00:00:00.360285 GUI: UIMediumEnumerator: Initial medium-enumeration finished!
+00:00:00.368698 GUI: UIMediumEnumerator: Medium-enumeration started...
+00:00:00.965171 GUI: UIMediumEnumerator: Medium-enumeration finished!
+00:00:01.082085 GUI: UIDesktopWidgetWatchdog::sltHandleHostScreenAvailableGeometryCalculated: Screen 0 work area is actually resized to: 713x401 x 1280x720
+00:00:33.240542 GUI: UICommon: Handling aboutToQuit request..
+00:00:34.029706 GUI: UICommon: aboutToQuit request handled!
