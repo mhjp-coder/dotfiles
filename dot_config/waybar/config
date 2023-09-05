@@ -45,9 +45,10 @@
     }
   },
   "network": {
+    "interface": "enp4s0",
+    "format": "{ifname}",
     "tooltip": false,
-    "format-wifi": "  {essid}",
-    "format-ethernet": " "
+    "format-ethernet": ""
   },
   "tray": {
     "icon-size": 18,
@@ -79,7 +80,7 @@
     "format": "{} Update(s)",
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-    "interval": 15,
+    "interval": 300,
     "on-click": "alacritty -e yay -Syu && notify-send 'The system has been updated' "
   }
 }
