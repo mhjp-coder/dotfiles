@@ -32,23 +32,22 @@
   "hyprland/workspaces": {
     "format": "{name}: {icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
+      "1": "",
+      "2": "",
+      "3": "󰨞",
+      "4": "",
+      "5": "󰙯",
       "active": "",
-      "default": ""
+      "default": ""
     },
     "persistent_workspaces": {
       "*": 3
     }
   },
   "network": {
-    "interface": "enp4s0",
-    "format": "{ifname}",
-    "tooltip": false,
-    "format-ethernet": ""
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+    "format-disconnected": "Disconnected ⚠"
   },
   "tray": {
     "icon-size": 18,
@@ -69,8 +68,7 @@
   },
   "custom/launcher": {
     "format": " ",
-    "on-click": "wofi -i --show drun --allow-images --no-actions",
-    "on-click-right": "killall wofi"
+    "on-click": "wofi -i --show drun --allow-images --no-actions"
   },
   "custom/power": {
     "format": " ",
@@ -81,6 +79,6 @@
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 300,
-    "on-click": "alacritty -e yay -Syu && notify-send 'The system has been updated' "
+    "on-click": "alacritty -e yay && notify-send '******************************** The system has been updated ********************************' "
   }
 }
