@@ -42,7 +42,6 @@
       "6": "<span size='130%'></span>",
       "7": "<span size='130%'></span>",
       "8": "<span size='130%'>󰨞</span>",
-      "active": "<span size='130%'>󰻿</span>",
       "default": "<span size='130%'>󰼀</span>"
     },
     "persistent_workspaces": {

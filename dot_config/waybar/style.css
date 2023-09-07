@@ -40,7 +40,7 @@ window#waybar.hidden {
 	transition: none;
 	color: #B5E8E0;
 	background: transparent;
-	font-size: 16px;
+	font-size: 6px;
 	border-radius: 2px;
 }
 
