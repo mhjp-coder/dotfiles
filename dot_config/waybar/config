@@ -33,14 +33,14 @@
   "hyprland/workspaces": {
     "format": "{name}: {icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "󰨞",
-      "4": "",
-      "5": "󰙯",
-      "6": "",
-      "active": "󰻿",
-      "default": "󰼀"
+      "1": "<span size='200%'></span>",
+      "2": "<span size='135%'></span>",
+      "3": "<span size='135%'>󰨞</span>",
+      "4": "<span size='135%'></span>",
+      "5": "<span size='135%'>󰙯</span>",
+      "6": "<span size='135%'></span>",
+      "active": "<span size='135%'>󰻿</span>",
+      "default": "<span size='135%'>󰼀</span>"
     },
     "persistent_workspaces": {
       "DP-2": [
