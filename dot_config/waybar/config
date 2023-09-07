@@ -34,15 +34,15 @@
     "all-outputs": false,
     "format": "<span font_scale='subscript' size='xx-small'>{name}</span>  {icon}",
     "format-icons": {
-      "1": "<span size='140%'></span>",
-      "2": "<span size='140%'></span>",
-      "3": "<span size='140%'>󰨞</span>",
-      "4": "<span size='140%'></span>",
-      "5": "<span size='140%'>󰙯</span>",
-      "6": "<span size='140%'></span>",
-      "7": "<span size='140%'></span>",
-      "8": "<span size='140%'>󰨞</span>",
-      "default": "<span size='140%'>󰼀</span>"
+      "1": "<span size='130%'></span>",
+      "2": "<span size='130%'></span>",
+      "3": "<span size='130%'>󰨞</span>",
+      "4": "<span size='130%'></span>",
+      "5": "<span size='130%'>󰙯</span>",
+      "6": "<span size='130%'></span>",
+      "7": "<span size='130%'></span>",
+      "8": "<span size='130%'>󰨞</span>",
+      "default": "<span size='130%'>󰼀</span>"
     },
     "persistent_workspaces": {
       "1": [
