@@ -73,9 +73,9 @@
     }
   },
   "network": {
-    "format-wifi": "<span size='130%'>󰖩</span> {essid} ({signalStrength}%)",
-    "format-ethernet": "<span size='130%'>󰱓</span> {ipaddr}/{cidr}",
-    "format-disconnected": "<span size='130%'>󰅛</span> Disconnected"
+    "format-wifi": "<span size='130%'>󰖩</span>  {essid} ({signalStrength}%)",
+    "format-ethernet": "<span size='130%'>󰱓</span>  {ipaddr}/{cidr}",
+    "format-disconnected": "<span size='130%'>󰅛</span>  Disconnected"
   },
   "tray": {
     "icon-size": 18,
