@@ -66,7 +66,7 @@
   },
   "clock": {
     "interval": 60,
-    "format": "{:%I:%M %p :%m-%d }"
+    "format": "{: %I:%M %p %M-%d}"
   },
   "cpu": {
     "interval": 15,
