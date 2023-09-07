@@ -24,9 +24,9 @@
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format-icons": {
       "default": [
-        "<span size='130%'></span>",
-        "<span size='130%'></span>",
-        "<span size='130%'></span>"
+        "<span size='130%'> </span>",
+        "<span size='130%'> </span>",
+        "<span size='130%'> </span>"
       ]
     }
   },
