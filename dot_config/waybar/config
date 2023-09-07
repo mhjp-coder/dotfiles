@@ -18,15 +18,15 @@
   ],
   "pulseaudio": {
     "tooltip": false,
-    "format": "{icon} {volume}%",
+    "format": "{icon}  {volume}%",
     "scroll-step": 5,
     "format-muted": "󰝟",
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format-icons": {
       "default": [
-        "<span size='130%'> </span>",
-        "<span size='130%'> </span>",
-        "<span size='130%'> </span>"
+        "<span size='130%'></span>",
+        "<span size='130%'></span>",
+        "<span size='130%'></span>"
       ]
     }
   },
