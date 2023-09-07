@@ -32,7 +32,7 @@
   },
   "hyprland/workspaces": {
     "all-outputs": false,
-    "format": "{name} {icon}",
+    "format": "<span font_scale='subscript'>{name}</span> {icon}",
     "format-icons": {
       "1": "<span size='130%'></span>",
       "2": "<span size='130%'></span>",
