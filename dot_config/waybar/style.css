@@ -27,6 +27,7 @@ window#waybar.hidden {
 #workspaces {
 	margin-top: 6px;
 	margin-left: 12px;
+	margin-right: 12px;
 	font-size: 4px;
 	margin-bottom: 0px;
 	border-radius: 10px;
@@ -42,11 +43,13 @@ window#waybar.hidden {
 	border-radius: 2px;
 }
 
-#workspaces button.occupied {
+#workspaces button.active {
 	transition: none;
-	color: #F28FAD;
 	background: transparent;
 	font-size: 4px;
+	color: #ABE9B3;
+  border-top: 2px solid #ABE9B3;
+  border-bottom: 2px solid #ABE9B3;
 }
 
 #workspaces button.focused {
