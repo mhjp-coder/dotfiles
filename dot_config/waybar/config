@@ -3,6 +3,7 @@
   "modules-left": [
     "cpu",
     "memory",
+    "custom/power",
     "custom/launcher"
   ],
   "modules-center": [
@@ -13,7 +14,6 @@
     "pulseaudio",
     "network",
     "clock",
-    "custom/power",
     "tray"
   ],
   "pulseaudio": {
