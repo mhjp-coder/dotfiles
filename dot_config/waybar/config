@@ -31,7 +31,7 @@
     }
   },
   "hyprland/workspaces": {
-    "format": "<span size='100%' rise='600'>{name}: {icon}</span>",
+    "format": "{name}: {icon}",
     "format-icons": {
       "1": "",
       "2": "",
