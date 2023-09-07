@@ -18,8 +18,8 @@
   ],
   "pulseaudio": {
     "tooltip": false,
-    "scroll-step": 5,
     "format": "{icon} {volume}%",
+    "scroll-step": 5,
     "format-muted": "󰝟",
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format-icons": {
@@ -66,7 +66,7 @@
   },
   "clock": {
     "interval": 60,
-    "format": "{: %I:%M %p  %b,%od}"
+    "format": "{: %I:%M %p  %b,%0d}"
   },
   "cpu": {
     "interval": 15,
