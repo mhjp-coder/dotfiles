@@ -96,7 +96,7 @@
     "max-length": 10
   },
   "custom/launcher": {
-    "format": "<span size='130%'></span> ",
+    "format": "<span size='100%'></span> ",
     "on-click": "wofi -i --show drun --allow-images --no-actions"
   },
   "custom/power": {
