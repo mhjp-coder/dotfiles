@@ -83,7 +83,7 @@
   },
   "clock": {
     "interval": 60,
-    "format": "{:<span size='130%'></span> %I:%M %p  %b,%e}"
+    "format": "{:<span size='130%'></span>  %I:%M %p  %b,%e}"
   },
   "cpu": {
     "interval": 15,
@@ -92,15 +92,15 @@
   },
   "memory": {
     "interval": 30,
-    "format": "<span size='130%'></span> {}%",
+    "format": "<span size='120%'></span> {}%",
     "max-length": 10
   },
   "custom/launcher": {
-    "format": "<span size='100%'></span> ",
+    "format": " ",
     "on-click": "wofi -i --show drun --allow-images --no-actions"
   },
   "custom/power": {
-    "format": "<span size='130%'></span> ",
+    "format": "<span size='120%'></span>  ",
     "on-click": "wlogout"
   },
   "custom/updates": {
