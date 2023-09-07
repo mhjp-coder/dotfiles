@@ -87,7 +87,7 @@
   },
   "cpu": {
     "interval": 15,
-    "format": "󰻠 {}%",
+    "format": "<big>󰻠</big> {}%",
     "max-length": 10
   },
   "memory": {
