@@ -42,8 +42,8 @@ window#waybar.hidden {
 	font-size: 4px;
 	color: #B5E8E0;
 	border-radius: 2px;
-  border-top: 2px solid none;
-  border-bottom: 2px solid none;
+  border-top: 2px solid #161320;
+  border-bottom: 2px solid #161320;
 }
 
 #workspaces button.active {
