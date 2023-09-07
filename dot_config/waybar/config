@@ -66,16 +66,16 @@
   },
   "clock": {
     "interval": 60,
-    "format": "{%I:%M %p}"
+    "format": "{:%I:%M %p :%m-%d }"
   },
   "cpu": {
     "interval": 15,
-    "format": "{}% 󰻠",
+    "format": "󰻠 {}%",
     "max-length": 10
   },
   "memory": {
     "interval": 30,
-    "format": "{}% ",
+    "format": " {}%",
     "max-length": 10
   },
   "custom/launcher": {
@@ -87,7 +87,7 @@
     "on-click": "wlogout"
   },
   "custom/updates": {
-    "format": "{} Update(s)",
+    "format": "󰣇 {} Update(s)",
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 300,
