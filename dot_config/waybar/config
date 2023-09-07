@@ -32,7 +32,7 @@
   },
   "hyprland/workspaces": {
     "all-outputs": false,
-    "format": "{name}: {icon}",
+    "format": "{name} {icon}",
     "format-icons": {
       "1": "<span size='130%'></span>",
       "2": "<span size='130%'></span>",
@@ -87,12 +87,12 @@
   },
   "cpu": {
     "interval": 15,
-    "format": "<span size='130%'>󰻠</span> {}%",
+    "format": "<span size='135%'>󰻠</span>  {}%",
     "max-length": 10
   },
   "memory": {
     "interval": 30,
-    "format": "<span size='120%'></span> {}%",
+    "format": "<span size='120%'></span>  {}%",
     "max-length": 10
   },
   "custom/launcher": {
@@ -100,11 +100,11 @@
     "on-click": "wofi -i --show drun --allow-images --no-actions"
   },
   "custom/power": {
-    "format": "<span size='120%'></span>  ",
+    "format": "<span size='120%'></span>  ",
     "on-click": "wlogout"
   },
   "custom/updates": {
-    "format": "<span size='130%'>󰣇</span> {} Update(s)",
+    "format": "<span size='130%'>󰣇</span>  {} Update(s)",
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 300,
