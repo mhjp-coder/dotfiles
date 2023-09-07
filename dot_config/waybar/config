@@ -20,7 +20,7 @@
     "tooltip": false,
     "format": "{icon}  {volume}%",
     "scroll-step": 5,
-    "format-muted": "󰝟",
+    "format-muted": "<span size='130%'>󰝟</span>",
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format-icons": {
       "default": [
@@ -34,16 +34,16 @@
     "all-outputs": false,
     "format": "{name}: {icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "󰨞",
-      "4": "",
-      "5": "󰙯",
-      "6": "",
-      "7": "",
-      "8": "󰨞",
-      "active": "󰻿",
-      "default": "󰼀"
+      "1": "<span size='130%'></span>",
+      "2": "<span size='130%'></span>",
+      "3": "<span size='130%'>󰨞</span>",
+      "4": "<span size='130%'></span>",
+      "5": "<span size='130%'>󰙯</span>",
+      "6": "<span size='130%'></span>",
+      "7": "<span size='130%'></span>",
+      "8": "<span size='130%'>󰨞</span>",
+      "active": "<span size='130%'>󰻿</span>",
+      "default": "<span size='130%'>󰼀</span>"
     },
     "persistent_workspaces": {
       "1": [
@@ -73,9 +73,9 @@
     }
   },
   "network": {
-    "format-wifi": "󰖩 {essid} ({signalStrength}%)",
-    "format-ethernet": "󰱓 {ipaddr}/{cidr}",
-    "format-disconnected": "󰅛 Disconnected"
+    "format-wifi": "<span size='130%'>󰖩</span> {essid} ({signalStrength}%)",
+    "format-ethernet": "<span size='130%'>󰱓</span> {ipaddr}/{cidr}",
+    "format-disconnected": "<span size='130%'>󰅛</span> Disconnected"
   },
   "tray": {
     "icon-size": 18,
@@ -83,28 +83,28 @@
   },
   "clock": {
     "interval": 60,
-    "format": "{:  %I:%M %p  %b,%e}"
+    "format": "{:<span size='130%'></span> %I:%M %p  %b,%e}"
   },
   "cpu": {
     "interval": 15,
-    "format": "<big>󰻠</big> {}%",
+    "format": "<span size='130%'>󰻠</span> {}%",
     "max-length": 10
   },
   "memory": {
     "interval": 30,
-    "format": "  {}%",
+    "format": "<span size='130%'></span> {}%",
     "max-length": 10
   },
   "custom/launcher": {
-    "format": " ",
+    "format": "<span size='130%'></span> ",
     "on-click": "wofi -i --show drun --allow-images --no-actions"
   },
   "custom/power": {
-    "format": " ",
+    "format": "<span size='130%'></span> ",
     "on-click": "wlogout"
   },
   "custom/updates": {
-    "format": "󰣇 {} Update(s)",
+    "format": "<span size='130%'>󰣇</span> {} Update(s)",
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 300,
