@@ -66,7 +66,7 @@
   },
   "clock": {
     "interval": 60,
-    "format": "{%I:%M %p  %d/%m/%Y 󰥔}"
+    "format": "{%I:%M %p}"
   },
   "cpu": {
     "interval": 15,
@@ -79,11 +79,11 @@
     "max-length": 10
   },
   "custom/launcher": {
-    "format": "  ",
+    "format": " ",
     "on-click": "wofi -i --show drun --allow-images --no-actions"
   },
   "custom/power": {
-    "format": "  ",
+    "format": " ",
     "on-click": "wlogout"
   },
   "custom/updates": {
