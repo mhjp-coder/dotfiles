@@ -39,6 +39,8 @@ window#waybar.hidden {
 #workspaces button {
 	transition: none;
 	background: transparent;
+	padding-right: 2px;
+	padding-left: 2px;
 	font-size: 4px;
 	color: #B5E8E0;
 	border-radius: 2px;
@@ -49,7 +51,8 @@ window#waybar.hidden {
 #workspaces button.active {
 	transition: none;
 	background: transparent;
-	padding-inline: 12px;
+	padding-right: 2px;
+	padding-left: 2px;
 	font-size: 4px;
 	color: #ABE9B3;
 	border-radius: 2px;
