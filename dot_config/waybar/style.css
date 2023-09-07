@@ -38,10 +38,12 @@ window#waybar.hidden {
 
 #workspaces button {
 	transition: none;
-	color: #B5E8E0;
 	background: transparent;
-	font-size: 6px;
+	font-size: 4px;
+	color: #B5E8E0;
 	border-radius: 2px;
+  border-top: 2px solid none;
+  border-bottom: 2px solid none;
 }
 
 #workspaces button.active {
@@ -49,6 +51,7 @@ window#waybar.hidden {
 	background: transparent;
 	font-size: 4px;
 	color: #ABE9B3;
+	border-radius: 2px;
   border-top: 2px solid #ABE9B3;
   border-bottom: 2px solid #ABE9B3;
 }
@@ -58,10 +61,6 @@ window#waybar.hidden {
 	box-shadow: inherit;
 	text-shadow: inherit;
 	color: #FAE3B0;
-}
-
-#workspaces button.focused:hover {
-  color: #E8A2AF;
 }
 
 #network {
