@@ -107,6 +107,6 @@
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 300,
-    "on-click": "alacritty -e yay --noconfirm && notify-send '************************* The system has been updated *************************' "
+    "on-click": "alacritty -e yay --answerdiff None && notify-send '************************* The system has been updated *************************' "
   }
 }
