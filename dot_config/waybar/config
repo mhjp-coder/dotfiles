@@ -40,8 +40,10 @@
       "4": "<span size='130%'></span>",
       "5": "<span size='130%'>󰙯</span>",
       "6": "<span size='130%'>󰭹</span>",
-      "7": "<span size='130%'></span>",
-      "8": "<span size='130%'>󰨞</span>",
+      "7": "<span size='130%'>󰉓</span>",
+      "8": "<span size='130%'></span>",
+      "9": "<span size='130%'>󰏆</span>",
+      "0": "<span size='130%'>󰨞</span>",
       "default": "<span size='130%'></span>"
     },
     "persistent_workspaces": {
@@ -67,6 +69,12 @@
         "DP-2"
       ],
       "8": [
+        "DP-3"
+      ],
+      "9": [
+        "DP-2"
+      ],
+      "0": [
         "DP-3"
       ]
     }
@@ -107,6 +115,6 @@
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 300,
-    "on-click": "alacritty -e yay -Su --noconfirm --answerdiff None  && notify-send '************************* The system has been updated *************************' "
+    "on-click": "alacritty -e yay --noconfirm --answerdiff None  && notify-send '************************* The system has been updated *************************' "
   }
 }
