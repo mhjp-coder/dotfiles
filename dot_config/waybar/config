@@ -41,9 +41,9 @@
       "5": "<span size='130%'>󰙯</span>",
       "6": "<span size='130%'></span>",
       "7": "<span size='130%'>󰉓</span>",
-      "8": "<span size='130%'></span>",
+      "8": "<span size='130%'></span>",
       "9": "<span size='130%'>󰏆</span>",
-      "0": "<span size='130%'>󰨞</span>",
+      "10": "<span size='130%'>󰨞</span>",
       "default": "<span size='130%'></span>"
     },
     "persistent_workspaces": {
