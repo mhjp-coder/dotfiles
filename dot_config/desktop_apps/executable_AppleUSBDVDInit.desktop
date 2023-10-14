@@ -3,4 +3,4 @@ Version=1.0
 Name=Apple USB DVD Init
 Comment=Send Magic byte to drive to initialize
 Type=Application
-Exec=$HOME/.config/scripts/apple_dvd_drive_init
+Exec=/home/mparsons/.config/scripts/apple_dvd_drive_init
