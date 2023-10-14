@@ -1,6 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Win7
-Comment=Starts the VirtualBox machine Win7
-Type=Application
-Exec=/usr/lib/virtualbox/VirtualBoxVM --comment "Win7" --startvm "{e8910dae-f689-479b-849e-6508c783059f}"
