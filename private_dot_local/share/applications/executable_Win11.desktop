@@ -3,4 +3,4 @@ Version=1.0
 Name=Win11
 Comment=Starts the VirtualBox machine Win11
 Type=Application
-Exec=/usr/lib/virtualbox/VirtualBoxVM --comment "Win11" --startvm "{01140649-6461-47f7-b570-2b21b1c0274c}"
+Exec=/usr/lib/virtualbox/VirtualBoxVM --comment "Win11" --startvm {56668c7e-dba5-445a-813d-cbc0eee16310}"
