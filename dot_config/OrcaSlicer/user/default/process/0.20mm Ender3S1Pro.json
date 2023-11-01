@@ -1,0 +1,15 @@
+{
+    "bottom_surface_pattern": "monotonicline",
+    "enable_support": "1",
+    "from": "User",
+    "inherits": "0.20mm Standard @Creality Ender3S1Pro",
+    "internal_solid_infill_pattern": "monotonicline",
+    "is_custom_defined": "0",
+    "name": "0.20mm Ender3S1Pro",
+    "print_settings_id": "0.20mm Ender3S1Pro",
+    "skirt_height": "1",
+    "support_style": "default",
+    "support_type": "tree(auto)",
+    "top_surface_pattern": "monotonicline",
+    "version": "1.7.0.0"
+}
