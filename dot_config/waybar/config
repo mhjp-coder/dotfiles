@@ -43,7 +43,7 @@
       "7": "<span size='130%'>󰉓</span>",
       "8": "<span size='130%'></span>",
       "9": "<span size='130%'>󰏆</span>",
-      "10": "<span size='130%'>󰨞</span>",
+      "10": "<span size='130%'></span>",
       "default": "<span size='130%'></span>"
     },
     "persistent_workspaces": {
@@ -74,7 +74,7 @@
       "9": [
         "DP-1"
       ],
-      "0": [
+      "10": [
         "DP-2"
       ]
     }
