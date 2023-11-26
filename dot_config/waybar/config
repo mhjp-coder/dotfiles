@@ -112,8 +112,8 @@
   },
   "custom/updates": {
     "format": "<span size='130%'>󰣇</span>  {} Update(s)",
-    "exec": "checkupdates | wc -l",
-    "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+    "exec": "checkupdates-with-aur | wc -l",
+    "exec-if": "[[ $(checkupdates-with-aur | wc -l) != 0 ]]",
     "interval": 300,
     "on-click": "alacritty -e yay && notify-send '************************* The system has been updated *************************' "
   }
