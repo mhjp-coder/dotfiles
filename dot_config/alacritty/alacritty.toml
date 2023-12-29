@@ -1,5 +1,3 @@
-theme = "Dracula"
-
 [colors.bright]
 black = "#6272a4"
 blue = "#d6acff"
