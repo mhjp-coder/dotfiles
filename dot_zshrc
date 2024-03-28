@@ -306,4 +306,4 @@ eval "$(direnv hook zsh)"
 eval "$(mcfly init zsh)"
 
 # Run neofetch
-neofetch
+fastfetch
