@@ -7,6 +7,8 @@ fi
 ## environment variables
 # QT
 export QT_SELECT=5
+# Kitty ssh
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 # ZSH History
 export HISTFILE=~/.zhistory
 export HISTSIZE=50000
