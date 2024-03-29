@@ -1,8 +1,8 @@
 * {
 	border: none;
 	border-radius: 10;
-  font-family: "JetbrainsMono Nerd Font" ;
-	font-size: 15px;
+  	font-family: "NotoSans Nerd Font, Medium" ;
+	font-size: 16px;
 	min-height: 10px;
 }
 
@@ -20,7 +20,7 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-  color: transparent;
+  	color: transparent;
 	background: transparent;
 }
 
