@@ -16,105 +16,94 @@
     "clock",
     "tray"
   ],
-  "pulseaudio": {
-    "tooltip": false,
-    "format": "{icon}  {volume}%",
-    "scroll-step": 5,
-    "format-muted": "<span size='130%'>󰝟</span>",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format-icons": {
-      "default": [
-        "<span size='130%'></span>",
-        "<span size='130%'></span>",
-        "<span size='130%'></span>"
-      ]
-    }
-  },
-  "hyprland/workspaces": {
-    "all-outputs": false,
-    "format": "<span font_scale='subscript' size='xx-small'>{name}</span>  {icon}",
-    "format-icons": {
-      "1": "<span size='130%'></span>",
-      "2": "<span size='130%'></span>",
-      "3": "<span size='130%'>󰨞</span>",
-      "4": "<span size='130%'>󰝚</span>",
-      "5": "<span size='130%'>󰙯</span>",
-      "6": "<span size='130%'></span>",
-      "7": "<span size='130%'>󰉓</span>",
-      "8": "<span size='130%'></span>",
-      "9": "<span size='130%'>󰏆</span>",
-      "10": "<span size='130%'></span>",
-      "default": "<span size='130%'></span>"
-    },
-    "persistent_workspaces": {
-      "1": [
-        "DP-1"
-      ],
-      "2": [
-        "DP-2"
-      ],
-      "3": [
-        "DP-1"
-      ],
-      "4": [
-        "DP-2"
-      ],
-      "5": [
-        "DP-1"
-      ],
-      "6": [
-        "DP-2"
-      ],
-      "7": [
-        "DP-1"
-      ],
-      "8": [
-        "DP-2"
-      ],
-      "9": [
-        "DP-1"
-      ],
-      "10": [
-        "DP-2"
-      ]
-    }
-  },
-  "network": {
-    "format-wifi": "<span size='130%'>󰖩</span>  {essid} ({signalStrength}%)",
-    "format-ethernet": "<span size='130%'>󰱓</span>  {ipaddr}/{cidr}",
-    "format-disconnected": "<span size='130%'>󰅛</span>  Disconnected"
-  },
-  "tray": {
-    "icon-size": 18,
-    "spacing": 10
-  },
-  "clock": {
-    "interval": 60,
-    "format": "{:<span size='130%'></span>  %I:%M %p  %b,%e}"
-  },
   "cpu": {
     "interval": 15,
-    "format": "<span size='135%'>󰻠</span>  {}%",
+    "format": "<span>󰻠</span> {}%",
     "max-length": 10
   },
   "memory": {
     "interval": 30,
-    "format": "<span size='120%'></span>  {}%",
+    "format": "<span></span> {}%",
     "max-length": 10
   },
-  "custom/launcher": {
-    "format": " ",
-    "on-click": "wofi -i --show drun --allow-images --no-actions"
-  },
   "custom/power": {
-    "format": "<span size='120%'></span>  ",
+    "tooltip": false,
+    "format": "<span></span>",
     "on-click": "wlogout"
   },
+  "custom/launcher": {
+    "tooltip": false,
+    "format": "",
+    "on-click": "wofi -i --show drun --allow-images --no-actions"
+  },
+  "hyprland/workspaces": {
+    "all-outputs": false,
+    "format": "<span font_scale='subscript' size='x-small'>{name}</span> {icon}",
+    "format-icons": {
+      "1": "<span></span>",
+      "2": "<span>󰨞</span>",
+      "3": "<span>󰝚</span>",
+      "4": "<span></span>",
+      "5": "<span>󰙯</span>",
+      "6": "<span></span>",
+      "7": "<span>󰉓</span>",
+      "8": "<span></span>",
+      "9": "<span>󰏆</span>",
+      "10": "<span></span>"
+    },
+    "persistent-workspaces": {
+      "DP-1": [
+        1,
+        3,
+        5,
+        7,
+        9
+      ],
+      "DP-2": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ]
+    }
+  },
   "custom/updates": {
-    "format": "<span size='130%'>󰣇</span>  {} Update(s)",
+    "tooltip": false,
+    "format": "<span>󰣇</span> {} Update(s)",
     "exec": "checkupdates-with-aur | wc -l",
     "exec-if": "[[ $(checkupdates-with-aur | wc -l) != 0 ]]",
     "interval": 300,
-    "on-click": "kitty -e yay && notify-send '************************* The system has been updated *************************' "
+    "on-click": "kitty -e yay && dunstify --appname='Arch Updates' 'The system has been updated'"
+  },
+  "pulseaudio": {
+    "tooltip": false,
+    "format": "{icon} {volume}%",
+    "scroll-step": 2,
+    "format-muted": "<span>󰝟</span>",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format-icons": {
+      "default": [
+        "<span></span>",
+        "<span></span>",
+        "<span></span>"
+      ]
+    }
+  },
+  "network": {
+    "tooltip": false,
+    "format-wifi": "<span>󰖩</span> {essid} ({signalStrength}%)",
+    "format-ethernet": "<span>󰱓</span> {ipaddr}/{cidr}",
+    "format-disconnected": "<span>󰅛</span> Disconnected"
+  },
+  "clock": {
+    "tooltip": false,
+    "interval": 60,
+    "format": "<span></span> {:L%I:%M %p  %b,%e}"
+  },
+  "tray": {
+    "tooltip": false,
+    "icon-size": 18,
+    "spacing": 10
   }
 }
