@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Win11
-Comment=Starts the VirtualBox machine Win11
-Type=Application
-Icon=win11
-Exec=/usr/lib/virtualbox/VirtualBoxVM --startvm Win11
