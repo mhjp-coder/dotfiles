@@ -57,7 +57,7 @@ window#waybar.hidden {
   padding-left: 16px;
   margin-top: 5px;
   margin-right: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   margin-left: 20px;
   border-radius: 26px;
   transition: none;
@@ -70,7 +70,7 @@ window#waybar.hidden {
   padding-left: 16px;
   margin-top: 5px;
   margin-right: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   margin-left: 8px;
   border-radius: 26px;
   transition: none;
@@ -83,13 +83,13 @@ window#waybar.hidden {
   padding-left: 16px;
   margin-top: 5px;
   margin-right: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   margin-left: 8px;
   border-radius: 26px;
   transition: none;
   font-size: 20px;
   color: @text-black;
-  background: @d-green;
+  background: @d-orange;
 }
 
 #custom-launcher {
@@ -97,7 +97,7 @@ window#waybar.hidden {
   padding-left: 16px;
   margin-top: 5px;
   margin-right: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   margin-left: 8px;
   font-size: 24px;
   border-radius: 26px;
@@ -110,7 +110,7 @@ window#waybar.hidden {
   padding-right: 16px;
   padding-left: 16px;
   margin-top: 5px;
-  margin-bottom: 0;
+  margin-bottom: 8px;
   border-radius: 26px;
   transition: none;
   background-color: @selection;
@@ -133,8 +133,7 @@ window#waybar.hidden {
   transition: none;
   background: transparent;
   color: @d-green;
-  border-top: 1px solid @d-green;
-  border-bottom: 1px solid @d-green;
+
 }
 
 #custom-updates {
@@ -142,7 +141,7 @@ window#waybar.hidden {
   padding-left: 16px;
   margin-top: 5px;
   margin-right: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   margin-left: 8px;
   border-radius: 26px;
   transition: none;
@@ -155,7 +154,7 @@ window#waybar.hidden {
   padding-left: 16px;
   margin-top: 5px;
   margin-right: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   margin-left: 8px;
   border-radius: 26px;
   transition: none;
@@ -168,7 +167,7 @@ window#waybar.hidden {
   padding-left: 16px;
   margin-top: 5px;
   margin-right: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   margin-left: 8px;
   border-radius: 26px;
   transition: none;
@@ -181,7 +180,7 @@ window#waybar.hidden {
   padding-left: 16px;
   margin-top: 5px;
   margin-right: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   margin-left: 8px;
   border-radius: 26px;
   transition: none;
@@ -196,7 +195,7 @@ window#waybar.hidden {
   padding-left: 16px;
   margin-top: 5px;
   margin-right: 8px;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
   margin-left: 8px;
   border-radius: 26px;
   transition: none;
