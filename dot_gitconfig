@@ -39,7 +39,7 @@
   untracked = red
   updated = green bold
 [user]
-	name = Mark Parsons
+	name = Mark P
 	email = mark@mhjp.ca
 [core]
 	editor = vim
