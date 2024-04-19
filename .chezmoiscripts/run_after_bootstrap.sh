@@ -7,7 +7,7 @@
 # makepkg -si
 
 # Install packages from pkglist.txt
-yay -S --noconfirm --needed - < {{ .pkglist | quoteList }}
+yay -S --noconfirm --needed - < ../dot_config/pkglist.txt
 
 # Install AUR packages
 #yay -S
