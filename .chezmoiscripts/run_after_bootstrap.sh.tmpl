@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# linux
+{{ if eq .chezmoi.os "linux" }}
+
 # Install yay
 # pacman -S git base-devel
 # git clone https://aur.archlinux.org/yay.git
@@ -11,3 +14,9 @@ yay -S --noconfirm --needed - < ../dot_config/pkglist.txt
 
 # Install AUR packages
 #yay -S
+{{ end }}
+
+
+# darwin
+{{ if eq .chezmoi.os "darwin" }}
+{{ end }}
