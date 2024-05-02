@@ -18,6 +18,8 @@ export GIT_AUTHOR_EMAIL="mark@mhjp.ca"
 export GIT_AUTHOR_NAME="Mark Parsons"
 export GIT_EDITOR="vim"
 export GIT_BRANCH="main"
+# Libvirt
+export LIBVIRT_DEFAULT_URI='qemu:///system'
 # McFly
 export MCFLY_FUZZY=true
 export MCFLY_RESULTS=20
