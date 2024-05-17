@@ -29,7 +29,7 @@
   "custom/power": {
     "tooltip": false,
     "format": "<span></span>",
-    "on-click": "wlogout -c 200 -r 200 -T 400 -B 400"
+    "on-click": "wlogout -s -c 200 -r 200 -T 400 -B 400"
   },
   "custom/launcher": {
     "tooltip": false,
