@@ -24,6 +24,7 @@
   github-cli
   gnome-font-viewer
   gnome-keyring
+  go
   greetd
   greetd-regreet
   grim
