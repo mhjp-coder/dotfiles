@@ -61,7 +61,7 @@ LC_CTYPE = "en_US.UTF-8"
 TERM = "xterm-256color"
 
 [font]
-size = {{ .fontSize }}
+size = 18
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
