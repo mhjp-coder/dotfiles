@@ -20,11 +20,6 @@ export GIT_EDITOR="vim"
 export GIT_BRANCH="main"
 # Libvirt
 export LIBVIRT_DEFAULT_URI='qemu:///system'
-# McFly
-export MCFLY_FUZZY=true
-export MCFLY_RESULTS=20
-export MCFLY_INTERFACE_VIEW=BOTTOM
-export MCFLY_RESULTS_SORT=LAST_RUN
 # eza (ls replacement)
 export eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--group')
 # FZF Theme
@@ -328,9 +323,6 @@ eval "$(starship init zsh)"
 
 # Setup Direnv
 eval "$(direnv hook zsh)"
-
-# Load Mcfly
-eval "$(mcfly init zsh)"
 
 # Run neofetch
 fastfetch
