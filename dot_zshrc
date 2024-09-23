@@ -110,7 +110,9 @@ alias ipbr='ip -br -c addr show'
 alias aenv='source .venv/bin/activate'
 alias denv='deactivate'
 # Python
-alias mkvenv='python3 -m venv .venv'
+alias uvi='uv init'
+alias uvs='uv sync'
+alias uvp='uv pip'
 # Misc
 alias cdc='cd $HOME/Developer'
 alias sc='source $HOME/.zshrc'
