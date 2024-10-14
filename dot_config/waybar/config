@@ -1,5 +1,6 @@
 {
   "layer": "top",
+  "position": "top",
   "modules-left": [
     "cpu",
     "memory",
@@ -18,17 +19,17 @@
   ],
   "cpu": {
     "interval": 15,
-    "format": "<span>󰻠</span> {}%",
+    "format": "󰻠 {}%",
     "max-length": 10
   },
   "memory": {
     "interval": 30,
-    "format": "<span></span> {}%",
+    "format": " {}%",
     "max-length": 10
   },
   "custom/power": {
     "tooltip": false,
-    "format": "<span></span>",
+    "format": "",
     "on-click": "wlogout -c 200 -r 200 -T 400 -B 400"
   },
   "custom/launcher": {
@@ -36,20 +37,60 @@
     "format": "",
     "on-click": "wofi -i --show drun --allow-images --no-actions"
   },
+  "tray": {
+    "tooltip": false,
+    "icon-size": 21,
+    "spacing": 10
+  },
+  "custom/music": {
+      "format": " {}",
+      "escape": true,
+      "interval": 5,
+      "tooltip": false,
+      "exec": "playerctl metadata --format='{{ title }}'",
+      "on-click": "playerctl play-pause",
+      "max-length": 50
+  },
+  "clock": {
+      "timezone": "America/Edmonton",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": " {:%d/%m/%Y}",
+      "format": " {:L%I:%M %p  %b,%e}"
+  },
+  "pulseaudio": {
+    "tooltip": false,
+    "format": "{icon} {volume}%",
+    "scroll-step": 2,
+    "format-muted": "󰝟",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "network": {
+    "tooltip": false,
+    "format-wifi": "<span>󰖩</span> {essid} ({signalStrength}%)",
+    "format-ethernet": "󰱓 {ipaddr}/{cidr}",
+    "format-disconnected": "󰅛 Disconnected"
+  },
   "hyprland/workspaces": {
     "all-outputs": false,
     "format": "<span font_scale='subscript' size='x-small'>{name}</span> {icon}",
     "format-icons": {
-      "1": "<span></span>",
-      "2": "<span>󰨞</span>",
-      "3": "<span>󰝚</span>",
-      "4": "<span></span>",
-      "5": "<span>󰙯</span>",
-      "6": "<span></span>",
-      "7": "<span>󰉓</span>",
-      "8": "<span></span>",
-      "9": "<span>󰏆</span>",
-      "10": "<span></span>"
+      "1": "",
+      "2": "󰨞",
+      "3": "󰝚",
+      "4": "",
+      "5": "󰙯",
+      "6": "",
+      "7": "󰉓",
+      "8": "",
+      "9": "󰏆",
+      "10": ""
     },
     "persistent-workspaces": {
       "DP-1": [
@@ -70,40 +111,10 @@
   },
   "custom/updates": {
     "tooltip": false,
-    "format": "<span>󰣇</span> {} Update(s)",
+    "format": "󰣇 {} Update(s)",
     "exec": "checkupdates-with-aur | wc -l",
     "exec-if": "[[ $(checkupdates-with-aur | wc -l) != 0 ]]",
     "interval": 300,
     "on-click": "kitty -e yay && dunstify --appname='Arch Updates' 'The system has been updated'"
-  },
-  "pulseaudio": {
-    "tooltip": false,
-    "format": "{icon} {volume}%",
-    "scroll-step": 2,
-    "format-muted": "<span>󰝟</span>",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format-icons": {
-      "default": [
-        "<span></span>",
-        "<span></span>",
-        "<span></span>"
-      ]
-    }
-  },
-  "network": {
-    "tooltip": false,
-    "format-wifi": "<span>󰖩</span> {essid} ({signalStrength}%)",
-    "format-ethernet": "<span>󰱓</span> {ipaddr}/{cidr}",
-    "format-disconnected": "<span>󰅛</span> Disconnected"
-  },
-  "clock": {
-    "tooltip": false,
-    "interval": 60,
-    "format": "<span></span> {:L%I:%M %p  %b,%e}"
-  },
-  "tray": {
-    "tooltip": false,
-    "icon-size": 18,
-    "spacing": 10
   }
 }
