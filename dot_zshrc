@@ -52,10 +52,6 @@ else
   export VISUAL='code --wait'
 fi
 
-# bat
-export BAT_THEME="Catppuccin Mocha"
-
-
 #####################
 ## Plugins section ##
 #####################
