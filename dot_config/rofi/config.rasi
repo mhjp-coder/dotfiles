@@ -2,7 +2,7 @@ configuration{
     modi: "run,drun,window";
     icon-theme: "Oranchelo";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
@@ -12,6 +12,9 @@ configuration{
     display-window: " 󰕰  Window";
     display-Network: " 󰤨  Network";
     sidebar-mode: true;
+}
+* {
+    font: "Noto Sans";
 }
 
 @theme "catppuccin-mocha"
