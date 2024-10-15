@@ -10,7 +10,6 @@ checkupdates-with-aur
 chezmoi
 cider-bin
 cliphist
-colloid-catppuccin-theme-git
 diffutils
 direnv
 dunst

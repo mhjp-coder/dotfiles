@@ -52,6 +52,7 @@ else
   export VISUAL='code --wait'
 fi
 
+
 #####################
 ## Plugins section ##
 #####################
@@ -182,6 +183,7 @@ alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/p
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
+
 ###############
 ## Functions ##
 ###############
@@ -209,6 +211,7 @@ dcupd() {
   fi
 }
 
+
 ###############
 ## GIT setup ##
 ###############
@@ -221,7 +224,10 @@ if [[ -z $(git config --get user.name) || -z $(git config --get user.email) || -
   git config --global pull.rebase true
 fi
 
-## Keys
+
+##########
+## Keys ##
+##########
 # Use emacs key bindings
 bindkey -e
 
@@ -360,6 +366,7 @@ if [ "$TERM" = "linux" ]; then
 	clear
 fi
 
+
 ############
 ## Addons ##
 ############
@@ -381,5 +388,3 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 #############
 ##   EOF   ##
 #############
-
-
