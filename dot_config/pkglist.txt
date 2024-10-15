@@ -3,7 +3,7 @@ base
 base-devel
 bat
 bluez
-bluez-util
+bluez-utils
 catppuccin-cursors-mocha
 catppuccin-gtk-theme-mocha
 checkupdates-with-aur
@@ -47,6 +47,7 @@ polkit-gnome
 python
 reflector
 rofi-wayland
+rust
 sddm
 slurp
 starship
@@ -60,6 +61,7 @@ volumectl
 vulkan-radeon
 waybar
 wget
+wlogout
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 zsh

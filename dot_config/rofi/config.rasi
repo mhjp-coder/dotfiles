@@ -1,5 +1,5 @@
 
-@import "catppuccin.rasi"
+@import "~/.config/theme/rofi.rasi"
 @import "style.rasi"
 
 configuration {
