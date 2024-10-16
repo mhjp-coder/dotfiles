@@ -12,6 +12,8 @@ paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}
 echo "########## Install AUR packages ##########"
 paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
 
+sudo systemctl enable sddm
+
 {{ end -}}
 
 
