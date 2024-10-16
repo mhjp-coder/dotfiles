@@ -32,7 +32,6 @@ if [[ "$(uname)" == "Linux" ]]; then
         update_mirrorlist
         echo "##########   Setting default shell to zsh   ##########"
         set_default_shell
-
     else
         echo "This script is intended for Arch Linux."
         exit 1
@@ -79,6 +78,7 @@ update_mirrorlist() {
     rate-mirrors --country CA,US arch | sudo tee /etc/pacman.d/mirrorlist
 }
 
+# Set the default shell to zsh
 set_default_shell() {
     sudo chsh -s $(which zsh) $who_am_i
 }

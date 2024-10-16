@@ -9,7 +9,11 @@ I recommend using minimal for the profile.
 archinstall
 ```
 
-Once the install is complete you should reboot into the new system and run
+Once the install is complete you should reboot into the new system as your user and run:
+
+```note
+    This script will not run as root.
+```
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mhjp-coder/dotfiles/refs/heads/main/install.sh)"
