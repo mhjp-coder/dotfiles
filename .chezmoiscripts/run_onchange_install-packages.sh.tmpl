@@ -5,14 +5,12 @@
 ###########
 {{ if eq .chezmoi.os "linux" -}}
 
-paru -S --noconfirm --needed \
-{{ range .packages.linux.pacman -}}
-    {{ . }}
-{{ end -}}
-paru -S --noconfirm --needed \
-{{ range .packages.linux.aur -}}
-    {{ . }}
-{{ end -}}
+# Insatll Repository packages
+echo "########## Install Repository packages ##########"
+paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}}
+# Install AUR packages
+echo "########## Install AUR packages ##########"
+paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
 
 {{ end -}}
 
