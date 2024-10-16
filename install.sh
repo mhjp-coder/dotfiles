@@ -8,7 +8,7 @@ set -e
 
 # Check if the script is being run as root
 if [ "$EUID" -eq 0 ]; then
-    echo -e "\nPlease do nut run this script as root."
+    echo -e "\nPlease do not run this script as root."
     exit 1
 fi
 
