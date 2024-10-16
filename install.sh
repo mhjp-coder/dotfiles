@@ -16,7 +16,7 @@ sudo echo "$(whoami) ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/00_$(who
 # Install base-devel, chezmoi, git, rust
 sudo pacman -S --noconfirm --needed base-devel chezmoi git rust zsh
 
-chsh -s $(which zsh) $(whoami)
+sudo chsh -s $(which zsh) $(whoami)
 #
 # Install AUR helper paru
 if ! command -v paru 2>&1 >/dev/null
