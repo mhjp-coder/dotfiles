@@ -24,7 +24,7 @@ then
     echo "########### Installing paru AUR helper ###########"
     git clone https://aur.archlinux.org/paru.git
     cd paru
-    makepkg -si
+    makepkg --syncdeps --install --noconfirm --needed
     cd ..
     rm -rf paru
 fi
