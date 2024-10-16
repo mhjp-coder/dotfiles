@@ -5,14 +5,9 @@
 ###########
 {{ if eq .chezmoi.os "linux" -}}
 
-paru -S --noconfirm --needed --file=/dev/stdin <<EOF
-{{ range .packages.linux.pacman -}}
-pacman {{ . | quote }}
-{{ end -}}
-{{ range .packages.linux.aur -}}
-aur {{ . | quote }}
-{{ end -}}
-EOF
+paru -S --noconfirm --needed {{ range .packages.linux.pacman -}} {{ . }} {{ end -}}
+paru -S --noconfirm --needed {{ range .packages.linux.aur -}}{{ . }}{{ end -}}
+
 {{ end -}}
 
 
