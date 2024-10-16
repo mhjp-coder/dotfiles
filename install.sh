@@ -62,7 +62,7 @@ install_paru() {
 update_mirrorlist() {
     echo -e "\n##########   Finding fastest mirrors   ##########"
     paru -S --noconfirm --needed rate-mirrors-bin
-    rate-mirrors --country CA,US arch | sudo tee /etc/pacman.d/mirrorlist
+    rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist
     echo -e "\n##########   Mirrorlist updated   ##########"
 }
 
