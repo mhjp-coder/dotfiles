@@ -65,7 +65,7 @@ packages:
       - 'rate-mirrors-bin'
       - 'visual-studio-code-bin'
       - 'volumectl'
-      - 'wlogout'
+      - 'wlogout-git'
       - 'zsh-fast-syntax-highlighting-git'
 
   darwin:

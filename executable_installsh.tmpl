@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Insatll Repository packages
-echo "########## Install Repository packages ##########"
-paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}}
-# Install AUR packages
-echo "########## Install AUR packages ##########"
-paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
-

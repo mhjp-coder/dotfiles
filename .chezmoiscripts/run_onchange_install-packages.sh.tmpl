@@ -5,13 +5,14 @@
 ###########
 {{ if eq .chezmoi.os "linux" -}}
 
-# Insatll Repository packages
+# Insatlling Repository packages
 echo "########## Install Repository packages ##########"
 paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}}
-# Install AUR packages
+# Installing AUR packages
 echo "########## Install AUR packages ##########"
 paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
-
+# Activate sddm
+echo "########## Activating sddm login manager ##########"
 sudo systemctl enable sddm
 
 {{ end -}}
