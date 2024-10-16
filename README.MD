@@ -12,7 +12,5 @@ archinstall
 Once the install is complete you should reboot into the new system and run
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://github.com/mhjp-coder/dotfiles/blob/e4e26d6a37694ba847155b5ebc2f73118367698c/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mhjp-coder/dotfiles/refs/heads/main/install.sh)"
 ```
-
-https://github.com/mhjp-coder/dotfiles/blob/e4e26d6a37694ba847155b5ebc2f73118367698c/install.sh
