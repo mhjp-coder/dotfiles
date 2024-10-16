@@ -5,8 +5,14 @@
 ###########
 {{ if eq .chezmoi.os "linux" -}}
 
-paru -S --noconfirm --needed "{{ range .packages.linux.pacman -}} {{ . }} {{ end -}}"
-paru -S --noconfirm --needed "{{ range .packages.linux.aur -}}{{ . }}{{ end -}}"
+paru -S --noconfirm --needed \
+{{ range .packages.linux.pacman -}}
+    {{ . }}
+{{ end -}}
+paru -S --noconfirm --needed \
+{{ range .packages.linux.aur -}}
+    {{ . }}
+{{ end -}}
 
 {{ end -}}
 
