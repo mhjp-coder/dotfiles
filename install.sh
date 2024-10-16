@@ -8,7 +8,7 @@ set -e
 
 # Check if the script is being run as root
 if [ "$EUID" -eq 0 ]; then
-    echo -e "\nPlease do nut run this script as root.\n"
+    echo -e "\nPlease do nut run this script as root."
     exit 1
 fi
 
@@ -22,24 +22,24 @@ who_am_i=$(whoami)
 
 # Setup pacman with color and parallel downloads
 pacman_setup() {
-    echo -e "\n##########   Setting up Pacman with color and parallel downloads   ##########\n"
+    echo -e "\n##########   Setting up Pacman with color and parallel downloads   ##########"
     sudo sed -i 's/#Color/Color/' /etc/pacman.conf
     sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 10/' /etc/pacman.conf
-    echo -e "\n##########   Pacman config done   ##########\n"
+    echo -e "\n##########   Pacman config done   ##########"
 }
 
 # Install packages needed to setup the system
 install_needed_pkgs() {
-    echo -e "\n##########   Installing packages needed for setup   ##########\n"
+    echo -e "\n##########   Installing packages needed for setup   ##########"
     sudo pacman -S --noconfirm --needed base-devel chezmoi git rust zsh
-    echo -e "\n##########   Package installs done   ##########\n"
+    echo -e "\n##########   Package installs done   ##########"
 }
 
 # Add user to sudoers NOPASSWD
 add_user_to_sudoers() {
-    echo -e "\n##########   Adding user to sudoers, no password needed   ##########\n"
+    echo -e "\n##########   Adding user to sudoers, no password needed   ##########"
     sudo echo -e "$who_am_i ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/00_$who_am_i
-    echo -e "\n##########   User added to sudoers   ##########\n"
+    echo -e "\n##########   User added to sudoers   ##########"
 
 }
 
@@ -47,36 +47,36 @@ add_user_to_sudoers() {
 install_paru() {
     if ! command -v paru 2>&1 >/dev/null
     then
-        echo -e "\n########### Installing paru AUR helper ###########\n"
+        echo -e "\n########### Installing paru AUR helper ###########"
         rm -rf paru
         git clone https://aur.archlinux.org/paru.git
         cd paru
         makepkg --syncdeps --install --noconfirm --needed
         cd ..
         rm -rf paru
-        echo -e "\n##########   Paru install complete   ##########\n"
+        echo -e "\n##########   Paru install complete   ##########"
     fi
 }
 
 # Install rate-mirrors and update the mirrorlist
 update_mirrorlist() {
-    echo -e "\n##########   Finding fastest mirrors   ##########\n"
+    echo -e "\n##########   Finding fastest mirrors   ##########"
     paru -S --noconfirm --needed rate-mirrors-bin
     rate-mirrors --country CA,US arch | sudo tee /etc/pacman.d/mirrorlist
-    echo -e "\n##########   Mirrorlist updated   ##########\n"
+    echo -e "\n##########   Mirrorlist updated   ##########"
 }
 
 # Set the default shell to zsh
 set_default_shell() {
-    echo -e "\n##########   Setting default shell to zsh   ##########\n"
+    echo -e "\n##########   Setting default shell to zsh   ##########"
     sudo chsh -s $(which zsh) $who_am_i
-    echo -e "\n##########   Default shell set to zsh   ##########\n"
+    echo -e "\n##########   Default shell set to zsh   ##########"
 }
 
 # Lets get started with the system setup
 if [[ "$(uname)" == "Linux" ]]; then
     DISTRO=$(grep '^ID=' /etc/os-release | cut -d'=' -f2)
-    echo -e "\nThis is a Linux system running $DISTRO.\n"
+    echo -e "\nThis is a Linux system running $DISTRO."
     if [[ "$DISTRO" == "arch" ]]; then
         # Setup pacman
         pacman_setup
@@ -91,13 +91,13 @@ if [[ "$(uname)" == "Linux" ]]; then
         # Set default shell to zsh
         set_default_shell
     else
-        echo -e "\nThis script is intended for Arch Linux.\n"
+        echo -e "\nThis script is intended for Arch Linux."
         exit 1
     fi
 elif [[ "$(uname)" == "Darwin" ]]; then
-    echo -e "\nThis is a macOS system. Skipping linux setup.\n"
+    echo -e "\nThis is a macOS system. Skipping linux setup."
 else
-    echo -e "\nUnknown system.\n"
+    echo -e "\nUnknown system."
 fi
 
 # Get the dotfiles and apply them
