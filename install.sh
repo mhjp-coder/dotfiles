@@ -22,6 +22,7 @@ chsh -s $(which zsh) $(whoami)
 if ! command -v paru 2>&1 >/dev/null
 then
     echo "########### Installing paru AUR helper ###########"
+    rm -rf paru
     git clone https://aur.archlinux.org/paru.git
     cd paru
     makepkg --syncdeps --install --noconfirm --needed
