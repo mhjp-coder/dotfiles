@@ -32,7 +32,7 @@ fi
 
 # Update mirrors
 paru -S --noconfirm --needed rate-mirrors-bin
-rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist
+rate-mirrors --country CA,US arch | sudo tee /etc/pacman.d/mirrorlist
 
 # Get the dotfiles
 chezmoi init --apply mhjp-coder
