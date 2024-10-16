@@ -4,12 +4,16 @@
 ##########################################
 # Configure New Arch Linux
 ##########################################
+set -e
 
 # Setup pacman with color and parallel downloads
-sed -i 's/#Color/Color/' /etc/pacman.conf
-sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 10/' /etc/pacman.conf
+sudo sed -i 's/#Color/Color/' /etc/pacman.conf
+sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 10/' /etc/pacman.conf
 
-# Install base-devel, rust, chezmoi, git, reflector
+# Add user to sudoers NOPASSWD
+sudo echo "{{ .chezmoi.username }} ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/00_{{ .chezmoi.username }}
+
+# Install base-devel, rust, chezmoi, git
 sudo pacman -S --noconfirm --needed base-devel rust chezmoi git
 #
 # Install AUR helper paru
@@ -24,7 +28,7 @@ then
 fi
 
 # Update mirrors
-paru -S --noconfirm rate-mirrors-bin
+paru -S --noconfirm --needed rate-mirrors-bin
 rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist
 #
 #

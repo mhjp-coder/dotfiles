@@ -1,0 +1,32 @@
+#!/bin/bash
+
+###########
+## linux ##
+###########
+{{ if eq .chezmoi.os "linux" -}}
+
+paru -S --noconfirm --needed --file=/dev/stdin <<EOF
+{{ range .packages.linux.pacman -}}
+pacman {{ . | quote }}
+{{ end -}}
+{{ range .packages.linux.aur -}}
+aur {{ . | quote }}
+{{ end -}}
+EOF
+{{ end -}}
+
+
+############
+## darwin ##
+############
+{{ if eq .chezmoi.os "darwin" -}}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.darwin.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ end }}
