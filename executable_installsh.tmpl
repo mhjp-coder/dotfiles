@@ -1,0 +1,5 @@
+#!/bin/bash
+
+paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}};
+paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}};
+
