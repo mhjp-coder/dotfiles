@@ -1,9 +1,11 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $machine_location := promptStringOnce . "machine_location" "Machine Location (work|home)" -}}
+{{- $gitname := promptStringOnce . "gitname" "Username for Git" -}}
 
 [data]
     email = {{ $email | quote }}
     machine_location = {{ $machine_location | quote }}
+    gitname = {{ $gitname | quote }}
 
 [git]
     autoCommit = true
