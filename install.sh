@@ -11,10 +11,12 @@ sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 10/' /etc/pacman.conf
 
 # Add user to sudoers NOPASSWD
-sudo echo "$(echo $USER) ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/00_$(echo $USER)
+sudo echo "$(whoami) ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/00_$(whoami)
 
 # Install base-devel, chezmoi, git, rust
-sudo pacman -S --noconfirm --needed base-devel chezmoi git rust
+sudo pacman -S --noconfirm --needed base-devel chezmoi git rust zsh
+
+chsh -s $(which zsh) $(whoami)
 #
 # Install AUR helper paru
 if ! command -v paru 2>&1 >/dev/null
