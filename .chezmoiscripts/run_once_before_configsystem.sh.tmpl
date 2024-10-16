@@ -4,24 +4,29 @@
 ##########################################
 # Configure New Arch Linux
 ##########################################
-#
+
 # Setup pacman with color and parallel downloads
 sed -i 's/#Color/Color/' /etc/pacman.conf
 sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 10/' /etc/pacman.conf
-#
+
 # Install base-devel, rust, chezmoi, git, reflector
-sudo pacman -S --noconfirm --needed base-devel rust chezmoi git reflector
-#
-# Update mirrors
-sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist
+sudo pacman -S --noconfirm --needed base-devel rust chezmoi git
 #
 # Install AUR helper paru
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
+if ! command -v paru 2>&1 >/dev/null
+then
+    echo "########### Installing paru AUR helper ###########"
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si
+    cd ..
+    rm -rf paru
+fi
+
+# Update mirrors
+paru -S --noconfirm rate-mirrors-bin
+rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist
 #
-# Install packages from pkglist.txt
-paru -S --noconfirm --needed - < $(chezmoi source-path)/dot_config/pkglist.txt
 #
 # enable, start, configure tuned
 #sudo systemctl enable --now tuned
