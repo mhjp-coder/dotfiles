@@ -1,5 +1,7 @@
 #!/bin/bash
 
-paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}};
+# Insatll Repositorie packages
+paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}}
+# Install AUR packages
 paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}};
 
