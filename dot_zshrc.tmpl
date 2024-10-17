@@ -66,27 +66,23 @@ function set_win_title(){
 precmd_functions+=(set_win_title)
 
 # zsh plugin path
-zpath="/usr/share/zsh/plugins"
+zplug="/usr/share/zsh/plugins"
 
 # fast syntax highlighting
-[[ -e "$zpath/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]] \
-&&
-source "$zpath/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+[[ -e "$zplug/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]] && \
+source "$zplug/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
 # autosuggestion
-[[ -e "$zpath/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"  ]] \
-&&
-source "$zpath/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+[[ -e "$zplug/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"  ]] && \
+source "$zplug/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 
 # history substring search
-[[ -e "$zpath/zsh-history-substring-search/zsh-history-substring-search.zsh" ]] \
-&&
-source "$zpath/zsh-history-substring-search/zsh-history-substring-search.zsh"
+[[ -e "$zplug/zsh-history-substring-search/zsh-history-substring-search.zsh" ]]  && \
+source "$zplug/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # fzf
 [[ -e /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 [[ -e /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
-
 
 # Completions
 autoload -Uz compinit && compinit
