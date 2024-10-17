@@ -31,6 +31,7 @@ packages:
       - 'hyprpaper'
       - 'hyprpicker'
       - 'kitty'
+      - 'man'
       - 'mesa-vdpau'
       - 'nautilus'
       - 'neovim'
@@ -66,7 +67,10 @@ packages:
       - 'visual-studio-code-bin'
       - 'volumectl'
       - 'wlogout-git'
+      - 'zsh-autosuggestions'
+      - 'zsh-completions'
       - 'zsh-fast-syntax-highlighting-git'
+      - 'zsh-history-substring-search'
 
   darwin:
     brews:
