@@ -12,8 +12,9 @@ paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}
 echo "########## Install AUR packages ##########"
 paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
 # Activate sddm
-echo "########## Activating sddm login manager ##########"
-sudo systemctl enable sddm
+echo "########## Activating systemd services ##########"
+sudo systemctl enable --now sddm
+sudo systemctl enable --now pacman-filesdb-refresh.timer
 
 {{ end -}}
 
