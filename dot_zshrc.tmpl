@@ -15,11 +15,29 @@ fi
 ## environment ##
 #################
 
-# ZSH
+# ZSH config
 export ZDOTDIR="${XDG_CONFIG_HOME:-$$HOME/.config}/zsh/"
-export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zhistory"
-export HISTSIZE=50000
-export SAVEHIST=10000
+setopt extended_glob                    # Extended globbing. Allows using regular expressions with *
+setopt no_case_glob                     # Case insensitive globbing
+setopt rc_expand_param                  # Array expension with parameters
+setopt no_check_jobs                    # Don't warn about running processes when exiting
+setopt numeric_glob_sort                # Sort filenames numerically when it makes sense
+setopt no_beep                          # Disable beep
+setopt auto_cd                          # Automatically cd into a directory if it's the only argument
+
+# ZSH History
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zhistory"
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory                    # Append history to the history file
+setopt sharehistory                     # Share history between all sessions
+setopt hist_ignore_space                # Ignore commands that start with a space
+setopt hist_ignore_all_dups             # Remove all duplicates from history
+setopt hist_save_no_dups                # Don't save duplicates in history
+setopt hist_ignore_dups                 # Ignore duplicates in history
+setopt hist_find_no_dups                 # Don't display duplicates when searching history
+
 
 # git variables
 export GIT_AUTHOR_EMAIL={{ .email }}
@@ -88,7 +106,6 @@ source "$zplug/zsh-history-substring-search/zsh-history-substring-search.zsh"
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
 zstyle ':completion:*' rehash true                              # automatically find new executables in path
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' menu select
 zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
@@ -98,26 +115,6 @@ zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zcache
-
-
-#############
-## Options ##
-#############
-
-setopt inc_append_history               # Immediately append history instead of overwriting
-setopt share_history                    # Share history between sessions
-setopt hist_ignore_dups                 # Ignore duplicates in history
-setopt hist_ignore_all_dups             # If a new command is a duplicate, remove the older one
-setopt hist_save_no_dups                # Don't save duplicates in history
-setopt hist_find_no_dups                # Don't display duplicates when searching history
-setopt hist_ignore_space                # Ignore commands that start with a space
-setopt extended_glob                    # Extended globbing. Allows using regular expressions with *
-setopt no_case_glob                     # Case insensitive globbing
-setopt rc_expand_param                  # Array expension with parameters
-setopt no_check_jobs                    # Don't warn about running processes when exiting
-setopt numeric_glob_sort                # Sort filenames numerically when it makes sense
-setopt no_beep                          # Disable beep
-setopt auto_cd                          # Automatically cd into a directory if it's the only argument
 
 
 #############
@@ -163,7 +160,7 @@ alias ....='cd ../../..'
 alias grep='grep --color=auto'
 alias fgrep='grep -F --color=auto'
 alias egrep='grep -E --color=auto'
-alias hw='hwinfo --short'                               # Hardware Info
+alias hw='hwinfo --short'
 
 # Chezmoi
 alias cz='chezmoi '
@@ -186,7 +183,6 @@ alias update-mirrors='export TMPFILE="$(mktemp)"; \
       && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
       && drop-caches \
       && paru -Syyu --noconfirm'
-alias mirrors="rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist"
 
 
 ###############
@@ -199,7 +195,7 @@ cimg(){
 }
 
 # Docker Compose
-# Start attached
+## Start attached
 dcup() {
   if [ $1 ]; then
     docker-compose -f $1 up --build
@@ -207,7 +203,7 @@ dcup() {
     docker-compose up --build
   fi
 }
-# Start Detached
+## Start Detached
 dcupd() {
   if [ $1 ]; then
     docker-compose -f $1 up --build -d
@@ -261,8 +257,11 @@ fi
 # ##########
 # ## Keys ##
 # ##########
-# # Use emacs key bindings
-# bindkey -e
+
+# Use emacs key bindings
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # # [PageUp] - Up a line of history
 # if [[ -n "${terminfo[kpp]}" ]]; then

@@ -13,8 +13,13 @@ echo "########## Install AUR packages ##########"
 paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
 # Activate sddm
 echo "########## Activating systemd services ##########"
-sudo systemctl enable --now sddm
 sudo systemctl enable --now pacman-filesdb-refresh.timer
+sudo systemctl enable sddm
+
+echo \
+'##########  Install Complete ##########
+You should now reboot your system to apply changes.'
+
 
 {{ end -}}
 

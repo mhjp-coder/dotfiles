@@ -100,5 +100,7 @@ else
     echo -e "\nUnknown system."
 fi
 
+# Remove the existing chezmoi directory
+[[ -d $HOME/.local/share/chezmoi ]] && rm -rf $HOME/.local/share/chezmoi
 # Get the dotfiles and apply them
 chezmoi init --apply $git_hub_username
