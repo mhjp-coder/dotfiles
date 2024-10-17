@@ -42,6 +42,8 @@ packages:
       - 'polkit'
       - 'polkit-gnome'
       - 'python'
+      - 'qt6-svg'
+      - 'qt6-declarative'
       - 'rofi-wayland'
       - 'rust'
       - 'sddm'

@@ -104,17 +104,27 @@ source "$zplug/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # Completions
 autoload -Uz compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
-zstyle ':completion:*' rehash true                              # automatically find new executables in path
+
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# automatically find new executables in path
+zstyle ':completion:*' rehash true
+#
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
-zstyle ':completion:*' menu select
-zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
-zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
+#
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza $realpath'
+#
+zstyle ':completion:*' menu no
+#zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+#zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
 zstyle ':completion::complete:*' gain-privileges 1
 # Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zcache
+
+
 
 
 #############
@@ -412,6 +422,9 @@ eval "$(starship init zsh)"
 
 # Setup Direnv
 eval "$(direnv hook zsh)"
+
+# If you're using macOS brew, you'll want this enabled
+[[ -f "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Run neofetch
 fastfetch
