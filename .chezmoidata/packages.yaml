@@ -38,6 +38,7 @@ packages:
       - 'noto-fonts'
       - 'nwg-look'
       - 'openssh'
+      - 'pacman-contrib'
       - 'polkit'
       - 'polkit-gnome'
       - 'python'
