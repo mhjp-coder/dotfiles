@@ -9,7 +9,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font: "NotoSans Nerd Font",;
+    font: "NotoSans Nerd Font";
 }
 
 /*****----- Main Window -----*****/
