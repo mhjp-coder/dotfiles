@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
-##########
-## Path ##
-##########
+########################
+## Path & script vars ##
+########################
 
 # Set $PATH if ~/.local/bin exist
 if [ -d "$HOME/.local/bin" ]; then
@@ -10,13 +10,22 @@ if [ -d "$HOME/.local/bin" ]; then
   export PATH
 fi
 
+# zsh plugin path
+zplug="/usr/share/zsh/plugins"
+# zsh config vars
+ZDOTDIR="${XDG_CONFIG_HOME:-$$HOME/.config}/zsh/"
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zhistory"
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+# do not highlight pasted text
+zle_highlight=('paste:none')
 
 #################
 ## environment ##
 #################
 
 # ZSH config
-export ZDOTDIR="${XDG_CONFIG_HOME:-$$HOME/.config}/zsh/"
 setopt extended_glob                    # Extended globbing. Allows using regular expressions with *
 setopt no_case_glob                     # Case insensitive globbing
 setopt rc_expand_param                  # Array expension with parameters
@@ -26,10 +35,7 @@ setopt no_beep                          # Disable beep
 setopt auto_cd                          # Automatically cd into a directory if it's the only argument
 
 # ZSH History
-HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zhistory"
-HISTSIZE=10000
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
+
 setopt appendhistory                    # Append history to the history file
 setopt sharehistory                     # Share history between all sessions
 setopt hist_ignore_space                # Ignore commands that start with a space
@@ -83,14 +89,54 @@ function set_win_title(){
 }
 precmd_functions+=(set_win_title)
 
-# zsh plugin path
-zplug="/usr/share/zsh/plugins"
+# case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
+# custom fzf flags
+# NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+# To make fzf-tab follow FZF_DEFAULT_OPTS.
+# NOTE: This may lead to unexpected behavior since some flags break this plugin. See Aloxaf/fzf-tab#455.
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
+# automatically find new executables in path
+zstyle ':completion:*' rehash true
+#
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
+
+
+#zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion::complete:*' gain-privileges 1
+# Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+# Load Completions
+autoload -Uz compinit && compinit
+
+
+# fzf-tab
+[[ -e "$zplug/fzf-tab-git/fzf-tab.plugin.zsh" ]] && \
+source "$zplug/fzf-tab-git/fzf-tab.plugin.zsh"
 
 # fast syntax highlighting
 [[ -e "$zplug/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]] && \
 source "$zplug/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
 # autosuggestion
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 [[ -e "$zplug/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"  ]] && \
 source "$zplug/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 
@@ -99,32 +145,18 @@ source "$zplug/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 source "$zplug/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # fzf
-[[ -e /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
-[[ -e /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
+[[ -e /usr/share/fzf/key-bindings.zsh ]] && \
+source /usr/share/fzf/key-bindings.zsh
+[[ -e /usr/share/fzf/completion.zsh ]] && \
+source /usr/share/fzf/completion.zsh
 
-# Completions
-autoload -Uz compinit && compinit
+# zoxide
+[[ -e "$zplug/zoxide/init.zsh" ]] && \
+source "$zplug/zoxide/init.zsh"
 
-# Case-insensitive completion
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-# automatically find new executables in path
-zstyle ':completion:*' rehash true
-#
-zstyle ':completion:*' completer _expand _complete _ignored _approximate
-#
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza $realpath'
-#
-zstyle ':completion:*' menu no
-#zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
-#zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
-zstyle ':completion::complete:*' gain-privileges 1
-# Speed up completions
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.cache/zcache
-
-
+# command-not-found
+[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && \
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
 
 #############
@@ -153,11 +185,11 @@ alias uvs='uv sync'
 alias uvp='uv pip'
 
 # Misc
-alias cat='bat'
-alias cdc='cd $HOME/Developer'
+alias cat='bat '
+alias zd='z $HOME/Developer'
 alias sc='source $HOME/.zshrc'
 alias c='clear'
-alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+alias fixpacman='sudo rm /var/lib/pacman/db.lck'
 alias tarnow='tar -acf '
 alias untar='tar -zxvf '
 alias wget='wget -c '
@@ -222,34 +254,6 @@ dcupd() {
   fi
 }
 
-# command not found handler
-function command_not_found_handler {
-    local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
-    printf 'zsh: command not found: %s\n' "$1"
-    local entries=(
-        ${(f)"$(/usr/bin/pacman -F --machinereadable -- "/usr/bin/$1")"}
-    )
-    if (( ${#entries[@]} ))
-    then
-        printf "${bright}$1${reset} may be found in the following packages:\n"
-        local pkg
-        for entry in "${entries[@]}"
-        do
-            # (repo package version file)
-            local fields=(
-                ${(0)entry}
-            )
-            if [[ "$pkg" != "${fields[2]}" ]]
-            then
-                printf "${purple}%s/${bright}%s ${green}%s${reset}\n" "${fields[1]}" "${fields[2]}" "${fields[3]}"
-            fi
-            printf '    /%s\n' "${fields[4]}"
-            pkg="${fields[2]}"
-        done
-    fi
-    return 127
-}
-
 
 ###############
 ## GIT setup ##
@@ -264,9 +268,9 @@ if [[ -z $(git config --get user.name) || -z $(git config --get user.email) || -
 fi
 
 
-# ##########
-# ## Keys ##
-# ##########
+##########
+## Keys ##
+##########
 
 # Use emacs key bindings
 bindkey -e
@@ -413,14 +417,14 @@ if [ "$TERM" = "linux" ]; then
 fi
 
 
-############
-## Addons ##
-############
+#####################
+## LOAD Everything ##
+#####################
 
 # Load Starship
 eval "$(starship init zsh)"
 
-# Setup Direnv
+# Load Direnv
 eval "$(direnv hook zsh)"
 
 # If you're using macOS brew, you'll want this enabled
@@ -428,6 +432,9 @@ eval "$(direnv hook zsh)"
 
 # Run neofetch
 fastfetch
+
+# Load zoxide
+eval "$(zoxide init zsh)"
 
 #############
 ##   EOF   ##
