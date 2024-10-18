@@ -361,17 +361,7 @@ bindkey '^n' history-search-forward
 # key[Control-Left]="${terminfo[kLFT5]}"
 # if [[ -n "${key[Control-Left]}"  ]]; then
 # 	bindkey -M emacs "${key[Control-Left]}"  backward-word
-# 	bindkey -M viins "${key[Control-Left]}"  backward-word
-# 	bindkey -M vicmd "${key[Control-Left]}"  backward-word
-# fi
-
-# # Control Left - go forward a word
-# key[Control-Right]="${terminfo[kRIT5]}"
-# if [[ -n "${key[Control-Right]}" ]]; then
-# 	bindkey -M emacs "${key[Control-Right]}" forward-word
-# 	bindkey -M viins "${key[Control-Right]}" forward-word
-# 	bindkey -M vicmd "${key[Control-Right]}" forward-word
-# fi
+# 	bindkey -M viins "${key[Contro
 
 # # Alt Left - go back a word
 # key[Alt-Left]="${terminfo[kLFT3]}"
@@ -434,7 +424,7 @@ eval "$(direnv hook zsh)"
 fastfetch
 
 # Load zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 #############
 ##   EOF   ##
