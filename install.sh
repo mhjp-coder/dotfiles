@@ -23,8 +23,8 @@ who_am_i=$(whoami)
 # Setup pacman with color and parallel downloads
 pacman_setup() {
     echo -e "\n##########   Setting up Pacman with color and parallel downloads   ##########"
-    sudo sed -i 's/#Color/Color/' /etc/pacman.conf
-    sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 10/' /etc/pacman.conf
+    sudo sed -i '/^#Color/s/^#//' /etc/pacman.conf
+    sudo sed -i '/^#ParallelDownloads = 5/s/^#//' /etc/pacman.conf
     echo -e "\n##########   Pacman config done   ##########"
 }
 
@@ -41,6 +41,13 @@ add_user_to_sudoers() {
     sudo echo -e "$who_am_i ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/00_$who_am_i
     echo -e "\n##########   User added to sudoers   ##########"
 
+}
+
+# Disable debug for makepkg
+disable_mkpkg_debug() {
+    echo -e "\n##########   Disabling debug for makepkg   ##########"
+    sudo sed -i '/^OPTIONS=.*\bdebug\b/s/\bdebug\b/!debug/' /etc/makepkg.conf
+    echo -e "\n##########   Debug disabled for makepkg   ##########"
 }
 
 # Install AUR helper paru
@@ -73,6 +80,15 @@ set_default_shell() {
     echo -e "\n##########   Default shell set to zsh   ##########"
 }
 
+# Set SDDM theme
+set_sddm_theme() {
+    echo -e "\n##########   Setting SDDM theme   ##########"
+    sudo mkdir -p /etc/sddm.conf.d
+    echo -e '[Theme]\nCurrent=catppuccino-mocha' | sudo tee /etc/sddm.conf.d/settings.conf
+    echo -e "\n##########   SDDM theme set   ##########"
+}
+
+
 # Lets get started with the system setup
 if [[ "$(uname)" == "Linux" ]]; then
     DISTRO=$(grep '^ID=' /etc/os-release | cut -d'=' -f2)
@@ -84,12 +100,16 @@ if [[ "$(uname)" == "Linux" ]]; then
         install_needed_pkgs
         # Add user to sudoers
         add_user_to_sudoers
+        # disable debug for makepkg
+        disable_mkpkg_debug
         # Install paru
         install_paru
         # Update mirrorlist
         update_mirrorlist
         # Set default shell to zsh
         set_default_shell
+        # Set SDDM theme
+        set_sddm_theme
     else
         echo -e "\nThis script is intended for Arch Linux."
         exit 1
