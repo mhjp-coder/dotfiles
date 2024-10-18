@@ -72,7 +72,7 @@ packages:
     aur:
       - 'catppuccin-cursors-mocha'
       - 'catppuccin-gtk-theme-mocha'
-      - 'catppuccin-icons-mocha'
+      - 'colloid-catppuccin-theme-git'
       - 'catppuccin-sddm-theme-mocha'
       - 'cider-bin'
       - 'fzf-tab-git'
