@@ -1,5 +1,12 @@
+#########
+## env ##
+#########
+
 # With out this Starship shifts the prompt over 2 chars when pressing tab.
-export LC_ALL=en_CA.UTF-8
+export LC_ALL="en_CA.UTF-8"
+
+# Vim config
+export VIMINIT="source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/.vimrc"
 
 # eza (ls replacement)
 export eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--group')
@@ -21,7 +28,5 @@ else
     export VISUAL='code --wait'
 fi
 
-# Bat colorizing pager for manpages and help
+# Bat colorizing pager for manpages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'

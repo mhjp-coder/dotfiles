@@ -1,3 +1,6 @@
+################
+## Arch Linux ##
+################
 
 # Path to zsh plugins
 zplug="/usr/share/zsh/plugins"
