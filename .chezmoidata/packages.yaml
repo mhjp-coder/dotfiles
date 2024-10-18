@@ -76,7 +76,6 @@ packages:
       - 'catppuccin-sddm-theme-mocha'
       - 'cider-bin'
       - 'fzf-tab-git'
-      - 'neovim-catppuccin'
       - 'neovim-symlinks'
       - 'plymouth-theme-catppuccin-mocha-git'
       - 'rate-mirrors-bin'
