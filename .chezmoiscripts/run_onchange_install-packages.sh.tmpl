@@ -11,10 +11,14 @@ paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}
 # Installing AUR packages
 echo "########## Install AUR packages ##########"
 paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
+# Setting Plymouth Theme
+echo "########## Setting Plymouth Theme ##########"
+sudo plymouth-set-default-theme -R catppuccin-mocha
 # Activate sddm
-echo "########## Activating systemd services ##########"
+echo "########## Final Setup ##########"
 sudo systemctl enable --now pacman-filesdb-refresh.timer
 sudo systemctl enable sddm
+bat cache --build
 
 echo \
 '##########  Install Complete ##########
@@ -37,4 +41,7 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
+
+echo "########## Final Setup ##########"
+bat cache --build
 {{ end -}}
