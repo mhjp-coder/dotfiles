@@ -1,10 +1,6 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Configuration For Rofi Version: 1.7.3
- **/
+
+@import "~/.config/theme/rofi.rasi"
+@import "style.rasi"
 
 configuration {
 	/*---------- General setting ----------*/
@@ -15,7 +11,7 @@ configuration {
 	scroll-method: 0;
 	normalize-match: true;
 	show-icons: true;
-	icon-theme: "Papirus";
+	icon-theme: "Colloid-yellow-Catppuccin-Dark";
 /*	cache-dir: ;*/
 	steal-focus: false;
 /*	dpi: -1;*/
@@ -82,7 +78,7 @@ configuration {
 	display-filebrowser: "Files";
 
 	/*---------- Misc setting ----------*/
-	terminal: "rofi-sensible-terminal";
+	terminal: "kitty";
 	font: "Mono 12";
 	sort: false;
 	threads: 0;

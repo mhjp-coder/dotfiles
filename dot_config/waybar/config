@@ -30,7 +30,7 @@
   "custom/power": {
     "tooltip": false,
     "format": "",
-    "on-click": "wlogout -c 200 -r 200 -T 400 -B 400"
+    "on-click": "~/.config/rofi/powermenu.sh"
   },
   "custom/launcher": {
     "tooltip": false,
