@@ -14,6 +14,14 @@ paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
 # Setting Plymouth Theme
 echo "########## Setting Plymouth Theme ##########"
 sudo plymouth-set-default-theme -R catppuccin-mocha
+# Setting up mkinitcpio to add plymouth
+sudo sed -i '/^HOOKS/ {/plymouth/!s/\(modconf\)/\1 plymouth/}' /etc/mkinitcpio.conf
+# enable splash in kernel parameters
+for entry in /boot/loader/entries/*.conf; do
+    if [[ "$entry" != *fallback* ]]; then
+        sudo sed -i '/^options/ {/splash/!s/\(options .*\)/\1 splash quiet/}' "$entry"
+    fi
+done
 # Activate sddm
 echo "########## Final Setup ##########"
 sudo systemctl enable --now pacman-filesdb-refresh.timer
