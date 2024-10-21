@@ -7,9 +7,6 @@
 # With out this Starship shifts the prompt over 2 chars when pressing tab.
 export LC_ALL="en_CA.UTF-8"
 
-# Vim config
-export VIMINIT="source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/.vimrc"
-
 # eza (ls replacement)
 export eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--group')
 
@@ -21,14 +18,13 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475a \
 --multi"
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vim'
-    export VISUAL='code --wait'
+
+if ! command -v nvim 2>&1 >/dev/null; then
+    export EDITOR='nvim'
 else
     export EDITOR='vim'
-    export VISUAL='code --wait'
 fi
+export VISUAL='code --wait'
 
 # Bat colorizing pager for manpages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
