@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 ###########
 ## linux ##
@@ -14,6 +14,8 @@ paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
 # Setting Plymouth Theme
 echo "########## Setting Plymouth Theme ##########"
 sudo plymouth-set-default-theme -R catppuccin-mocha
+sudo grep -q 'DeviceScale=an-integer-scaling-factor' /etc/plymouth/plymouthd.conf || \
+sudo sed -i '/^\[Daemon\]/a DeviceScale=an-integer-scaling-factor' /etc/plymouth/plymouthd.conf
 # Setting up mkinitcpio to add plymouth
 sudo sed -i '/^HOOKS/ {/plymouth/!s/\(modconf\)/\1 plymouth/}' /etc/mkinitcpio.conf
 # enable splash in kernel parameters
@@ -22,6 +24,21 @@ for entry in /boot/loader/entries/*.conf; do
         sudo sed -i '/^options/ {/splash/!s/\(options .*\)/\1 splash quiet/}' "$entry"
     fi
 done
+# Change timer for systemd-boot
+sudo sed -i 's/^timeout .*/timeout 1/' /boot/loader/loader.conf
+# Slow down boot to display Plymouth
+sudo tee /etc/systemd/system/plymouth-wait-for-animation.service <<EOF
+[Unit]
+Description=Waits for Plymouth animation to finish
+Before=plymouth-quit.service display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sleep duration_of_your_animation
+
+[Install]
+WantedBy=plymouth-start.service
+EOF
 # Activate sddm
 echo "########## Final Setup ##########"
 sudo systemctl enable --now pacman-filesdb-refresh.timer
