@@ -74,7 +74,6 @@ packages:
       - 'catppuccin-cursors-mocha'
       - 'catppuccin-gtk-theme-mocha'
       - 'catppuccin-sddm-theme-mocha'
-      - 'cider-bin'
       - 'colloid-catppuccin-theme-git'
       - 'fzf-tab-git'
       - 'gfeeds-git'
