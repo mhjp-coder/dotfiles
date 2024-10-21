@@ -39,10 +39,11 @@ ExecStart=/usr/bin/sleep duration_of_your_animation
 [Install]
 WantedBy=plymouth-start.service
 EOF
-# Activate sddm
+# Activate services
 echo "########## Final Setup ##########"
 sudo systemctl enable --now pacman-filesdb-refresh.timer
 sudo systemctl enable sddm
+sudo systemctl enable plymouth-wait-for-animation
 bat cache --build
 fast-theme XDG:catppuccin-mocha
 
