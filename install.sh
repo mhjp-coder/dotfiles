@@ -84,7 +84,7 @@ set_default_shell() {
 set_sddm_theme() {
     echo -e "\n##########   Setting SDDM theme   ##########"
     sudo mkdir -p /etc/sddm.conf.d
-    echo -e '[Theme]\nCurrent=catppuccino-mocha' | sudo tee /etc/sddm.conf.d/settings.conf
+    echo -e '[Theme]\nCurrent=catppuccin-mocha' | sudo tee /etc/sddm.conf.d/settings.conf
     echo -e "\n##########   SDDM theme set   ##########"
 }
 
