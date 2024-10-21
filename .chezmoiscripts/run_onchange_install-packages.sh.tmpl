@@ -17,7 +17,7 @@ sudo plymouth-set-default-theme -R catppuccin-mocha
 sudo grep -q 'DeviceScale=an-integer-scaling-factor' /etc/plymouth/plymouthd.conf || \
 sudo sed -i '/^\[Daemon\]/a DeviceScale=an-integer-scaling-factor' /etc/plymouth/plymouthd.conf
 # Setting up mkinitcpio to add plymouth
-sudo sed -i '/^HOOKS/ {/plymouth/!s/\(modconf\)/\1 plymouth/}' /etc/mkinitcpio.conf
+sudo sed -i '/^HOOKS/ { /systemd/ { /plymouth/!s/\(systemd\)/\1 plymouth/ }; /systemd/! { /plymouth/!s/\(base\)/\1 plymouth/ } }' /etc/mkinitcpio.conf
 # enable splash in kernel parameters
 for entry in /boot/loader/entries/*.conf; do
     if [[ "$entry" != *fallback* ]]; then
@@ -34,7 +34,7 @@ Before=plymouth-quit.service display-manager.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/sleep 10
+ExecStart=/usr/bin/sleep 1
 
 [Install]
 WantedBy=plymouth-start.service
