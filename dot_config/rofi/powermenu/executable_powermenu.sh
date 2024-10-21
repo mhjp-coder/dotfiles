@@ -1,21 +1,13 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
-## Author : Aditya Shakya (adi1090x)
-## Github : @adi1090x
-#
-## Rofi   : Power Menu
-#
-## Available Styles
-#
-## style-1   style-2   style-3   style-4   style-5
 
 # Current Theme
-dir="$HOME/.config/rofi/powermenu/type-4"
-theme='style-1'
+dir="$HOME/.config/rofi/powermenu"
+theme='style'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
-host=$(hostnamectl hostname)
+host=`hostnamectl hostname`
 
 # Options
 shutdown=''
@@ -29,7 +21,7 @@ no=''
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-p "Goodbye ${USER}" \
+		-p "Uptime: $uptime" \
 		-mesg "Uptime: $uptime" \
 		-theme ${dir}/${theme}.rasi
 }
@@ -39,7 +31,7 @@ confirm_cmd() {
 	rofi -dmenu \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?' \
-		-theme ${dir}/shared/confirm.rasi
+		-theme ${dir}/confirm.rasi
 }
 
 # Ask for confirmation
@@ -71,6 +63,8 @@ run_cmd() {
 				bspc quit
 			elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
 				i3-msg exit
+			elif [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
+				hyprctl dispatch exit
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
 			fi
@@ -92,6 +86,8 @@ case ${chosen} in
     $lock)
 		if [[ -x '/usr/bin/betterlockscreen' ]]; then
 			betterlockscreen -l
+		elif [[ -x '/usr/bin/loginctl' ]]; then
+			loginctl lock-session
 		elif [[ -x '/usr/bin/i3lock' ]]; then
 			i3lock
 		fi

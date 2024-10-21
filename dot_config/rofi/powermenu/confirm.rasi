@@ -1,20 +1,10 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Rofi Theme File
- * Rofi Version: 1.7.3
- **/
-
 /*****----- Configuration -----*****/
 configuration {
     show-icons:                 false;
 }
 
 /*****----- Global Properties -----*****/
-@import                          "colors.rasi"
-@import                          "fonts.rasi"
+@import "~/.config/theme/rofi.rasi"
 
 /*****----- Main Window -----*****/
 window {
@@ -23,8 +13,10 @@ window {
     fullscreen:                  false;
     width:                       500px;
     border-radius:               20px;
+    border:                      1px solid;
+    border-color:                var(box-border-color);
     cursor:                      "default";
-    background-color:            @background;
+    background-color:            var(background-confirm);
 }
 
 /*****----- Main Box -----*****/
@@ -40,15 +32,15 @@ message {
     margin:                      0px;
     padding:                     20px;
     border-radius:               20px;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    background-color:            transparent;
+    text-color:                  var(foreground-normal);
 }
 textbox {
-    background-color:            inherit;
+    background-color:            transparent;
     text-color:                  inherit;
     vertical-align:              0.5;
     horizontal-align:            0.5;
-    placeholder-color:           @foreground;
+    placeholder-color:           var(foreground-normal);
     blink:                       true;
     markup:                      true;
 }
@@ -64,10 +56,10 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     30px;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  var(foreground-normal);
     cursor:                      "default";
 }
 
@@ -75,12 +67,12 @@ listview {
 element {
     padding:                     60px 10px;
     border-radius:               20px;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
     cursor:                      pointer;
 }
 element-text {
-    font:                        "feather 48";
+    font:                        var(font-32);
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
@@ -88,6 +80,6 @@ element-text {
     horizontal-align:            0.5;
 }
 element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
+    background-color:            var(background-selected);
+    text-color:                  var(foreground-selected);
 }

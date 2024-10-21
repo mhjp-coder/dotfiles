@@ -30,12 +30,12 @@
   "custom/power": {
     "tooltip": false,
     "format": "",
-    "on-click": "$HOME/.config/rofi/scripts/powermanu_t4"
+    "on-click": "$HOME/.config/rofi/powermenu/powermenu.sh"
   },
   "custom/launcher": {
     "tooltip": false,
     "format": "",
-    "on-click": "$HOME/.config/rofi/scripts/launcher_t1"
+    "on-click": "$HOME/.config/rofi/launchers/launcher.sh"
   },
   "tray": {
     "tooltip": false,

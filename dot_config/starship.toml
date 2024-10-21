@@ -13,26 +13,27 @@ error_symbol  ="[[λ](red) ❯](peach)"
 vimcmd_symbol ="[λ ❮](subtext1)"       # For use with zsh-vi-mode
 
 [aws]
-style="(peach)"
+style="peach"
 
 [cmd_duration]
-style="(yellow)"
+style="yellow"
 
 [directory]
-style="(green)"
+truncation_length=4
+style            ="bold green"
 
 [git_branch]
-style="(pink)"
+style="pink"
 
 [git_status]
-style="(red)"
+style="red"
 
 [hostname]
-style="(mauve)"
+style="mauve"
 
 [username]
 format    ="[$user]($style) on "
-style_user="(sapphire)"
+style_user="sapphire"
 
 [palettes.catppuccin_mocha]
 rosewater="#f5e0dc"
