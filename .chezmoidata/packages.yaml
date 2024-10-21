@@ -79,6 +79,7 @@ packages:
       - 'fzf-tab-git'
       - 'gfeeds-git'
       - 'neovim-symlinks'
+      - 'nvim-lazy'
       - 'plymouth-theme-catppuccin-mocha-git'
       - 'rate-mirrors-bin'
       - 'visual-studio-code-bin'
