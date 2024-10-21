@@ -73,9 +73,9 @@ packages:
     aur:
       - 'catppuccin-cursors-mocha'
       - 'catppuccin-gtk-theme-mocha'
-      - 'colloid-catppuccin-theme-git'
       - 'catppuccin-sddm-theme-mocha'
       - 'cider-bin'
+      - 'colloid-catppuccin-theme-git'
       - 'fzf-tab-git'
       - 'gfeeds-git'
       - 'neovim-symlinks'
