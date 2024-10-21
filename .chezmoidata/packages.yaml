@@ -46,6 +46,7 @@ packages:
       - 'polkit'
       - 'polkit-gnome'
       - 'python'
+      - 'qt5-quickcontrols2'
       - 'qt6-svg'
       - 'qt6-declarative'
       - 'rofi-wayland'
