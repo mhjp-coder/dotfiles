@@ -82,7 +82,6 @@ set_sddm_theme() {
     sudo sed -i 's/^Background=".*"/Background=""/' $sddm_theme_conf
 }
 
-
 # Lets get started with the system setup
 if [[ "$(uname)" == "Linux" ]]; then
     DISTRO=$(grep '^ID=' /etc/os-release | cut -d'=' -f2)
