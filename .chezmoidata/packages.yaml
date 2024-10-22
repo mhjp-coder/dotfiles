@@ -5,6 +5,7 @@ packages:
       - 'base'
       - 'base-devel'
       - 'bat'
+      - 'dconf-editor'
       - 'bluez'
       - 'bluez-utils'
       - 'chezmoi'
