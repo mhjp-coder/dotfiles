@@ -25,29 +25,24 @@ pacman_setup() {
     echo -e "\n##########   Setting up Pacman with color and parallel downloads   ##########"
     sudo sed -i '/^#Color/s/^#//' /etc/pacman.conf
     sudo sed -i '/^#ParallelDownloads = 5/s/^#//' /etc/pacman.conf
-    echo -e "\n##########   Pacman config done   ##########"
 }
 
 # Install packages needed to setup the system
 install_needed_pkgs() {
     echo -e "\n##########   Installing packages needed for setup   ##########"
     sudo pacman -S --noconfirm --needed base-devel chezmoi git rust zsh
-    echo -e "\n##########   Package installs done   ##########"
 }
 
 # Add user to sudoers NOPASSWD
 add_user_to_sudoers() {
     echo -e "\n##########   Adding user to sudoers, no password needed   ##########"
     sudo echo -e "$who_am_i ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/00_$who_am_i
-    echo -e "\n##########   User added to sudoers   ##########"
-
 }
 
 # Disable debug for makepkg
 disable_mkpkg_debug() {
     echo -e "\n##########   Disabling debug for makepkg   ##########"
     sudo sed -i '/^OPTIONS=.*\bdebug\b/s/\bdebug\b/!debug/' /etc/makepkg.conf
-    echo -e "\n##########   Debug disabled for makepkg   ##########"
 }
 
 # Install AUR helper paru
@@ -61,7 +56,6 @@ install_paru() {
         makepkg --syncdeps --install --noconfirm --needed
         cd ..
         rm -rf paru
-        echo -e "\n##########   Paru install complete   ##########"
     fi
 }
 
@@ -70,22 +64,22 @@ update_mirrorlist() {
     echo -e "\n##########   Finding fastest mirrors   ##########"
     paru -S --noconfirm --needed rate-mirrors-bin
     rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist
-    echo -e "\n##########   Mirrorlist updated   ##########"
 }
 
 # Set the default shell to zsh
 set_default_shell() {
     echo -e "\n##########   Setting default shell to zsh   ##########"
     sudo chsh -s $(which zsh) $who_am_i
-    echo -e "\n##########   Default shell set to zsh   ##########"
 }
 
 # Set SDDM theme
 set_sddm_theme() {
+    sddm_theme_conf="/usr/share/sddm/themes/catppuccin-mocha/theme.conf"
     echo -e "\n##########   Setting SDDM theme   ##########"
     sudo mkdir -p /etc/sddm.conf.d
     echo -e '[Theme]\nCurrent=catppuccin-mocha' | sudo tee /etc/sddm.conf.d/settings.conf
-    echo -e "\n##########   SDDM theme set   ##########"
+    sudo sed -i 's/^FontSize=.*\b/FontSize=16/' $sddm_theme_conf
+    sudo sed -i 's/^Background=".*"/Background=""/' $sddm_theme_conf
 }
 
 

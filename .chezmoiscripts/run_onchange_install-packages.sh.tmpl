@@ -8,24 +8,30 @@
 # Insatlling Repository packages
 echo "########## Install Repository packages ##########"
 paru -S --noconfirm --needed {{ range .packages.linux.pacman }}{{ . }} {{ end -}}
+
 # Installing AUR packages
 echo "########## Install AUR packages ##########"
 paru -S --noconfirm --needed {{ range .packages.linux.aur }}{{ . }} {{ end -}}
+
 # Setting Plymouth Theme
 echo "########## Setting Plymouth Theme ##########"
 sudo plymouth-set-default-theme -R catppuccin-mocha
 sudo grep -q 'DeviceScale=an-integer-scaling-factor' /etc/plymouth/plymouthd.conf || \
 sudo sed -i '/^\[Daemon\]/a DeviceScale=an-integer-scaling-factor' /etc/plymouth/plymouthd.conf
+
 # Setting up mkinitcpio to add plymouth
 sudo sed -i '/^HOOKS/ { /systemd/ { /plymouth/!s/\(systemd\)/\1 plymouth/ }; /systemd/! { /plymouth/!s/\(base\)/\1 plymouth/ } }' /etc/mkinitcpio.conf
+
 # enable splash in kernel parameters
 for entry in /boot/loader/entries/*.conf; do
     if [[ "$entry" != *fallback* ]]; then
         sudo sed -i '/^options/ {/splash/!s/\(options .*\)/\1 splash quiet/}' "$entry"
     fi
 done
+
 # Change timer for systemd-boot
 sudo sed -i 's/^timeout .*/timeout 1/' /boot/loader/loader.conf
+
 # Slow down boot to display Plymouth
 sudo tee /etc/systemd/system/plymouth-wait-for-animation.service <<EOF
 [Unit]
@@ -39,6 +45,7 @@ ExecStart=/usr/bin/sleep 3
 [Install]
 WantedBy=plymouth-start.service
 EOF
+
 # Activate services
 echo "########## Final Setup ##########"
 sudo systemctl enable --now pacman-filesdb-refresh.timer
@@ -49,7 +56,6 @@ bat cache --build
 echo \
 '##########  Install Complete ##########
 You should now reboot your system to apply changes.'
-
 
 {{ end -}}
 
