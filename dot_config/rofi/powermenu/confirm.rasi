@@ -74,7 +74,7 @@ element {
     cursor:                      pointer;
 }
 element-text {
-    font:                        var(font-32);
+    font:                        var(font-48);
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
