@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Keychron Editor
+Comment=Edit Keychron keyboard layout.
+Type=Application
+Categories=Utility
+Icon=keyboard-layout
+Exec=/home/mparsons/.local/bin/keychron_edit

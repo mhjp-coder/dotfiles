@@ -1,6 +1,7 @@
 [Desktop Entry]
-Version=1.0
 Name=Apple USB DVD Init
 Comment=Send Magic byte to drive to initialize
 Type=Application
-Exec=/home/mparsons/.config/scripts/apple_dvd_drive_init
+Categories=Utility
+Icon=drive-optical-symbolic
+Exec=~/.local/bin/apple_dvd_drive_init
