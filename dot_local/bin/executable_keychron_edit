@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+
+FILES=/dev/hidraw*
+for f in $FILES
+do
+    FILE=${f##*/}
+    DEVICE="$(cat /sys/class/hidraw/${FILE}/device/uevent | grep HID_NAME | cut -d '=' -f2)"
+    printf "%s \t %s\n" $FILE "$DEVICE"
+done
+
+echo
+read -p "Please enter ID of your keyboard (Default: 1): " hidraw_id
+
+
+sudo chmod a+rw /dev/hidraw${hidraw_id:-1}
+
+[[ -e $(command -v chromium) ]] && \
+chromium --app=https://usevia.app/ --enable-features=UseOzonePlatform --ozone-platform=wayland || \
+echo "Chromium not found. Please install it."
+
+sudo chmod a-rw /dev/hidraw${hidraw_id:-1}
