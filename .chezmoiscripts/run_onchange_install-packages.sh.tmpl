@@ -48,6 +48,11 @@ EOF
 
 # Activate services
 echo "########## Final Setup ##########"
+# sddm theme settings
+sddm_theme_conf="/usr/share/sddm/themes/catppuccin-mocha/theme.conf"
+sudo sed -i 's/^FontSize=.*\b/FontSize=16/' $sddm_theme_conf
+sudo sed -i 's/^Background=".*"/Background=""/' $sddm_theme_conf
+# enable services
 sudo systemctl enable --now pacman-filesdb-refresh.timer
 sudo systemctl enable sddm
 sudo systemctl enable plymouth-wait-for-animation
