@@ -4,4 +4,5 @@ Comment=Edit Keychron keyboard layout.
 Type=Application
 Categories=Utility
 Icon=keyboard-layout
+Terminal=1
 Exec=/home/mparsons/.local/bin/keychron_edit
