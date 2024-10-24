@@ -29,7 +29,7 @@ for entry in /boot/loader/entries/*.conf; do
     fi
 done
 
-# Change timer for systemd-boot
+# Change timeout for systemd-boot
 sudo sed -i 's/^timeout .*/timeout 1/' /boot/loader/loader.conf
 
 # Slow down boot to display Plymouth
@@ -45,6 +45,11 @@ ExecStart=/usr/bin/sleep 3
 [Install]
 WantedBy=plymouth-start.service
 EOF
+
+# Set default Cursor theme
+echo "########## Setting Cursor Theme ##########"
+[[ ! -d "~/.local/share/icons" ]] && mkdir -p ~/.local/share/icons
+[[ ! -L "default" && ! -d "default" ]] && ln -s /usr/share/icons/catppuccin-mocha-yellow-cursors ~/.local/share/icons/default
 
 # Activate services
 echo "########## Final Setup ##########"
