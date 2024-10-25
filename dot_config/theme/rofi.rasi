@@ -1,0 +1,27 @@
+* {
+    font-16:                     "NotoSans Nerd Font 16";
+    font-32:                     "NotoSans Nerd Font 32";
+    font-48:                     "NotoSans Nerd Font 48";
+    font-bold-16:                "NotoSans Nerd Font Bold 16";
+    font-bold-32:                "NotoSans Nerd Font Bold 32";
+    font-bold-48:                "NotoSans Nerd Font Bold 48";
+
+    /* Power Menu */
+    background-window:           linear-gradient(45, #585B70, #45475A, #282839, #1E1D2F);
+    background-confirm:          #282839;
+    background-normal:           #89B4FAD0;
+    background-selected:         #A6E3A1D0;
+    foreground-normal:           #D9E0EE;
+    foreground-selected:         #D9E0EE;
+    box-border-color:            #F9E2AF;
+
+    /* Launcher Menu */
+    selected:                    #7AA2F7;
+    background:                  #1E1D2F;
+    foreground:                  #D9E0EE;
+    background-alt:              #282839;
+    urgent:                      #F28FAD;
+    active:                      #ABE9B3;
+}
+
+

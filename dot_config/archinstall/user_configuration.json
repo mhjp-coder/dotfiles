@@ -1,0 +1,75 @@
+{
+    "additional-repositories": [],
+    "archinstall-language": "English",
+    "audio_config": {
+        "audio": "pipewire"
+    },
+    "bootloader": "Systemd-boot",
+    "config_version": "2.8.6",
+    "debug": false,
+    "hostname": "archlinux",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "us",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_CA"
+    },
+    "mirror_config": {
+        "custom_mirrors": [],
+        "mirror_regions": {
+            "Canada": [
+                "https://muug.ca/mirror/archlinux/$repo/os/$arch",
+                "https://mirror2.evolution-host.com/archlinux/$repo/os/$arch",
+                "https://mirror.xenyth.net/archlinux/$repo/os/$arch",
+                "https://mirror.scd31.com/arch/$repo/os/$arch",
+                "https://mirror.quantum5.ca/archlinux/$repo/os/$arch",
+                "https://mirror.csclub.uwaterloo.ca/archlinux/$repo/os/$arch",
+                "https://mirror.cpsc.ucalgary.ca/mirror/archlinux.org/$repo/os/$arch",
+                "https://mirror.accuris.ca/archlinux/$repo/os/$arch",
+                "https://mirror.0xem.ma/arch/$repo/os/$arch",
+                "https://dl.ptse.host/archlinux/$repo/os/$arch",
+                "https://ca.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "https://arch.mirror.winslow.cloud/$repo/os/$arch",
+                "http://muug.ca/mirror/archlinux/$repo/os/$arch",
+                "http://mirror2.evolution-host.com/archlinux/$repo/os/$arch",
+                "http://mirror.xenyth.net/archlinux/$repo/os/$arch",
+                "http://mirror.scd31.com/arch/$repo/os/$arch",
+                "http://mirror.quantum5.ca/archlinux/$repo/os/$arch",
+                "http://mirror.its.dal.ca/archlinux/$repo/os/$arch",
+                "http://mirror.csclub.uwaterloo.ca/archlinux/$repo/os/$arch",
+                "http://mirror.cpsc.ucalgary.ca/mirror/archlinux.org/$repo/os/$arch",
+                "http://mirror.accuris.ca/archlinux/$repo/os/$arch",
+                "http://mirror.0xem.ma/arch/$repo/os/$arch",
+                "http://ca.mirrors.cicku.me/archlinux/$repo/os/$arch",
+                "http://archlinux.mirror.rafal.ca/$repo/os/$arch"
+            ]
+        }
+    },
+    "network_config": {
+        "type": "iso"
+    },
+    "no_pkg_lookups": false,
+    "ntp": true,
+    "offline": false,
+    "packages": [],
+    "parallel downloads": 10,
+    "profile_config": {
+        "gfx_driver": null,
+        "greeter": null,
+        "profile": {
+            "custom_settings": {},
+            "details": [],
+            "main": "Minimal"
+        }
+    },
+    "script": "guided",
+    "silent": false,
+    "skip_ntp": false,
+    "skip_version_check": false,
+    "swap": true,
+    "timezone": "America/Edmonton",
+    "uki": false,
+    "version": "2.8.6"
+}

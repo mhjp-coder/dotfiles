@@ -1,0 +1,119 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+    hover-select:               true;
+    me-accept-entry:            "!MousePrimary";
+}
+
+/*****----- Global Properties -----*****/
+@import "~/.config/theme/rofi.rasi"
+
+* {
+    /* Resolution : 1920x1080 */
+    mainbox-spacing:             100px;
+    mainbox-margin:              0px 470px;
+    message-margin:              0px 350px;
+    message-padding:             15px;
+    message-border-radius:       100%;
+    listview-spacing:            25px;
+    element-padding:             45px 40px;
+    element-border-radius:       100%;
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  true;
+    cursor:                      "default";
+    background-image:            var(background-window);
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     var(mainbox-spacing);
+    margin:                      var(mainbox-margin);
+    background-color:            transparent;
+    children:                    [ "dummy", "listview", "inputbar", "dummy" ];
+}
+
+/*****----- User -----****
+userimage {
+    margin:                      0px 600px;
+    border:                      2px;
+    border-radius:               100%;
+    border-color:                var(border-color);
+    background-color:            transparent;
+    background-image:            url("~/.config/rofi/avatar.png", height);
+}*/
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    background-color:            transparent;
+    children:                    [ "dummy", "prompt", "dummy"];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+prompt {
+    enabled:                     true;
+    font:                        var(font-bold-32);
+    background-color:            transparent;
+    text-color:                  var(foreground-normal);
+}
+
+/*****----- Message -----****
+message {
+    enabled:                     true;
+    margin:                      var(message-margin);
+    padding:                     var(message-padding);
+    border-radius:               var(message-border-radius);
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
+}*/
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    expand:                      false;
+    columns:                     5;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    spacing:                     var(listview-spacing);
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     var(element-padding);
+    border-radius:               var(element-border-radius);
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
+    cursor:                      pointer;
+}
+element-text {
+    font:                        var(font-bold-48);
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+element selected.normal {
+    background-color:            var(background-selected);
+    text-color:                  var(foreground-selected);
+}

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Keychron Editor
+Comment=Edit Keychron keyboard layout.
+Type=Application
+Categories=Utility
+Icon=keyboard-layout
+Terminal=1
+Exec=~/.local/bin/keychron_edit

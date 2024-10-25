@@ -1,0 +1,176 @@
+@import "../theme/waybar.css";
+
+* {
+  border: none;
+  border-radius: 0px;
+  font-family: "NotoSans Nerd Font";
+  font-size: 18px;
+  min-height: 24px;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#window {
+  margin-top: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 26px;
+  transition: none;
+  color: transparent;
+  background: transparent;
+}
+
+#cpu {
+  padding-right: 14px;
+  padding-left: 14px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 20px;
+  border-radius: 26px;
+  transition: none;
+  color: @text;
+  background: @maroon;
+}
+
+#memory {
+  padding-right: 14px;
+  padding-left: 14px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  border-radius: 26px;
+  transition: none;
+  color: @text;
+  background: @sky;
+}
+
+#custom-power {
+  padding-right: 14px;
+  padding-left: 14px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  border-radius: 26px;
+  transition: none;
+  font-size: 24px;
+  color: @text;
+  background: @red;
+}
+
+#custom-launcher {
+  padding-right: 14px;
+  padding-left: 14px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  border-radius: 26px;
+  transition: none;
+  font-size: 24px;
+  color: @text;
+  background: @sapphire;
+}
+
+#workspaces {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  border-radius: 26px;
+  transition: none;
+  background-color: @mantle;
+}
+
+#workspaces button {
+  transition: none;
+  background: transparent;
+  color: @surface1;
+}
+
+#workspaces button:hover {
+  transition: none;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: @yellow;
+}
+
+#workspaces button.active {
+  transition: none;
+  background: transparent;
+  color: @green;
+
+}
+
+#custom-updates {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  border-radius: 26px;
+  transition: none;
+  color: @text;
+  background: @mauve;
+}
+
+#pulseaudio {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  border-radius: 26px;
+  transition: none;
+  color: @text;
+  background: @blue;
+}
+
+#network {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  border-radius: 26px;
+  transition: none;
+  color: @text;
+  background: @pink;
+}
+
+#clock {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  border-radius: 26px;
+  transition: none;
+  color: @text;
+  background: @lavender;
+}
+
+#tray {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  border-radius: 26px;
+  transition: none;
+  color: @text;
+  background: @overlay2;
+}
