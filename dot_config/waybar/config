@@ -45,7 +45,7 @@
   "clock": {
       "timezone": "America/Edmonton",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "󰅐 {:%d/%m/%Y L%I:%M %p}",
+      "format-alt": "󰅐 {:%d/%m/%Y %I:%M %p}",
       "format": "󰅐 {:L%I:%M %p  %b,%e}"
   },
   "pulseaudio": {
