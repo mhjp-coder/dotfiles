@@ -22,6 +22,7 @@ packages:
       - "gnome-calculator"
       - "gnome-font-viewer"
       - "gnome-keyring"
+      - "gnome-text-editor"
       - "gnome-themes-extra"
       - "grim"
       - "gtk-engine-murrine"
