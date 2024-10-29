@@ -94,7 +94,6 @@ packages:
       - "gfeeds-git"
       - "neovim-symlinks"
       - "nvim-lazy"
-      - "orca-slicer-bin"
       - "plymouth-theme-catppuccin-mocha-git"
       - "rate-mirrors-bin"
       - "visual-studio-code-bin"
