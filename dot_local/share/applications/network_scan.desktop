@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Network Scan
+Comment=Network Scan returns Hostname, MAC, and MAC OUI infomation.
+Type=Application
+Categories=Utility
+Icon=nmap_icon
+Terminal=1
+Exec=~/.local/bin/network_scan

@@ -2,6 +2,7 @@ packages:
   linux:
     pacman:
       - "archlinux-keyring"
+      - "arp-scan"
       - "base"
       - "base-devel"
       - "bat"
@@ -44,6 +45,7 @@ packages:
       - "mesa-vdpau"
       - "nautilus"
       - "neovim"
+      - "nmap"
       - "noto-fonts"
       - "nwg-clipman"
       - "nwg-icon-picker"
