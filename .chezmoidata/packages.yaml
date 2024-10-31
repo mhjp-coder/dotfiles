@@ -56,7 +56,6 @@ packages:
       - "pkgfile"
       - "plymouth"
       - "pocket-casts-linux-bin"
-      - "polari"
       - "polkit"
       - "polkit-gnome"
       - "pyprland"
