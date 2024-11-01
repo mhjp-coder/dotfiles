@@ -11,7 +11,7 @@ configuration {
 * {
     /* Resolution : 1920x1080 */
     mainbox-spacing:             100px;
-    mainbox-margin:              0px 470px;
+    mainbox-margin:              110px 470px;
     message-margin:              0px 350px;
     message-padding:             15px;
     message-border-radius:       100%;
@@ -36,7 +36,7 @@ mainbox {
     spacing:                     var(mainbox-spacing);
     margin:                      var(mainbox-margin);
     background-color:            transparent;
-    children:                    [ "dummy", "listview", "inputbar", "dummy" ];
+    children:                    [ "listview", "dummy", "inputbar" ];
 }
 
 /*****----- User -----****
@@ -55,6 +55,7 @@ inputbar {
     background-color:            transparent;
     children:                    [ "dummy", "prompt", "dummy"];
 }
+
 
 dummy {
     background-color:            transparent;

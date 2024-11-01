@@ -7,7 +7,8 @@
     font-bold-48:                "NotoSans Nerd Font Bold 48";
 
     /* Power Menu */
-    background-window:           linear-gradient(45, #585B70, #45475A, #282839, #1E1D2F);
+    // background-window:           linear-gradient(45, #585B70, #45475A, #282839, #1E1D2F);
+    background-window:           url("~/.config/wallpaper/cat-sound.png", both);
     background-confirm:          #282839;
     background-normal:           #89B4FAD0;
     background-selected:         #A6E3A1D0;
