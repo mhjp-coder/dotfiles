@@ -28,6 +28,7 @@ window {
     fullscreen:                  true;
     cursor:                      "default";
     background-image:            var(background-window);
+    background-color:            var(background-confirm);
 }
 
 /*****----- Main Box -----*****/
