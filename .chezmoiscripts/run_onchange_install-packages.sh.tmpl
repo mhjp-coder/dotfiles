@@ -65,6 +65,12 @@ echo "########## Final Setup ##########"
 sudo systemctl enable --now pacman-filesdb-refresh.timer
 sudo systemctl enable sddm
 sudo systemctl enable plymouth-wait-for-animation
+sudo systemctl enable NetworkManager
+sudo systemctl enable bluetooth
+sudo systemctl enable cups.service
+sudo systemctl enable avahi-daemon
+sudo systemctl enable fstrim.timer
+sudo systemctl enable acpid
 bat cache --build
 
 echo \

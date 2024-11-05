@@ -1,6 +1,7 @@
 packages:
   linux:
     pacman:
+      - "acpid"
       - "archlinux-keyring"
       - "arp-scan"
       - "base"
@@ -11,6 +12,7 @@ packages:
       - "bluez-utils"
       - "chezmoi"
       - "cliphist"
+      - "cups"
       - "d-spy"
       - "diffutils"
       - "direnv"
@@ -45,6 +47,8 @@ packages:
       - "mesa-vdpau"
       - "nautilus"
       - "neovim"
+      - "networkmanager"
+      - "network-manager-applet"
       - "nmap"
       - "noto-fonts"
       - "nwg-clipman"
