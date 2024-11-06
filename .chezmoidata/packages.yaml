@@ -51,6 +51,7 @@ packages:
       - "network-manager-applet"
       - "nmap"
       - "noto-fonts"
+      - "noto-fonts-emoji"
       - "nwg-clipman"
       - "nwg-icon-picker"
       - "nwg-look"
