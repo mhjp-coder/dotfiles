@@ -29,3 +29,9 @@ export VISUAL='code --wait'
 # Bat colorizing pager for manpages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
+
+# Bun
+if [ -d "$HOME/.local/share/reflex/bun" ]; then
+    export BUN_INSTALL="$HOME/.local/share/reflex/bun"
+    export PATH="$BUN_INSTALL/bin:$PATH"
+fi
