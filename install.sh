@@ -15,7 +15,7 @@ fi
 
 # Prompt the user to enter a username
 echo
-export $(read -p "Please Enter the GitHub username to get the dot files from: " git_hub_username)
+read -p "Please Enter the GitHub username to get the dot files from: " git_hub_username
 
 # Get the current user
 who_am_i=$(whoami)
