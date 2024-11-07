@@ -108,4 +108,4 @@ fi
 #TODO: another -rf, here we should ask the user if this is ok
 [[ -d $HOME/.local/share/chezmoi ]] && rm -rf $HOME/.local/share/chezmoi
 # Get the dotfiles and apply them
-chezmoi init --apply $git_hub_username
+chezmoi init $git_hub_username --apply
