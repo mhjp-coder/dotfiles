@@ -50,6 +50,8 @@ packages:
       - "networkmanager"
       - "network-manager-applet"
       - "nmap"
+      - "nodejs"
+      - "npm"
       - "noto-fonts"
       - "noto-fonts-emoji"
       - "nwg-clipman"
