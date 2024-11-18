@@ -5,4 +5,5 @@ Type=Application
 Categories=Utility
 Icon=keyboard-layout
 Terminal=1
-Exec=~/.local/bin/keychron_edit
+Path=.local/bin
+Exec=keychron_edit

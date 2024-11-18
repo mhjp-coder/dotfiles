@@ -41,8 +41,8 @@ zle_highlight=('paste:none')
 # Load Keybindings
 [[ -e "$ZDOTDIR/keybindrc" ]] && source "$ZDOTDIR/keybindrc"
 
-# Set Fast Syntax Highlighting Theme
-theme_name=$(echo $(fast-theme -s) | awk -F': ' '{print $2}' | awk '{print $1}')
+# Set Fast Syntax Highlighting Theme # The sed command removes the color codes
+theme_name=$(echo $(fast-theme -s) | awk -F': ' '{print $2}' | awk '{print $1}' | sed -e 's/\x1b\[[0-9;]*m//g')
 [[ "$theme_name" != "catppuccin-mocha" ]] && \
 fast-theme XDG:catppuccin-mocha
 

@@ -73,6 +73,7 @@ packages:
       - "rofi-wayland"
       - "rust"
       - "sddm"
+      - "sg3_utils"
       - "slurp"
       - "starship"
       - "swappy"
@@ -95,7 +96,6 @@ packages:
       - "zsh-autosuggestions"
       - "zsh-completions"
     aur:
-      #- "catppuccin-sddm-theme-mocha"
       - "colloid-catppuccin-gtk-theme-git"
       - "colloid-cursors-git"
       - "colloid-catppuccin-theme-git"
