@@ -16,6 +16,7 @@ packages:
       - "d-spy"
       - "diffutils"
       - "direnv"
+      - "docker"
       - "dunst"
       - "evince"
       - "eza"
