@@ -1,0 +1,20 @@
+# Workspace config
+{{ if eq .machine_location "home" -}}
+$leftDisplay    = DP-4
+$rightDisplay   = DP-5
+{{ end -}}
+{{ if eq .machine_location "work" -}}
+$leftDisplay    = DP-2
+$rightDisplay   = DP-3
+{{ end -}}
+
+workspace = 1,  monitor:$leftDisplay,   on-created-empty:$editor
+workspace = 3,  monitor:$leftDisplay,   on-created-empty:$terminal
+workspace = 5,  monitor:$leftDisplay,   on-created-empty:$chat
+workspace = 7,  monitor:$leftDisplay,   on-created-empty:$fileManager
+workspace = 9,  monitor:$leftDisplay,   on-created-empty:$notes
+workspace = 2,  monitor:$rightDisplay,  on-created-empty:$browser
+workspace = 4,  monitor:$rightDisplay,  on-created-empty:$music
+workspace = 6,  monitor:$rightDisplay,  on-created-empty:$vm
+workspace = 8,  monitor:$rightDisplay,  on-created-empty:$email
+workspace = 10, monitor:$rightDisplay,  on-created-empty:$launcher

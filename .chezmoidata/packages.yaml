@@ -37,12 +37,14 @@ packages:
       - "hyprcursor"
       - "hypridle"
       - "hyprland"
+      - "hyprland-qtutils"
       - "hyprlock"
       - "hyprpaper"
       - "hyprpicker"
       - "kitty"
       - "libva-mesa-driver"
-      - "linux-headers"
+      - "linux-lts-headers"
+      - "linux-lts"
       - "loupe"
       - "man"
       - "mesa-vdpau"
@@ -106,9 +108,9 @@ packages:
       - "nvim-lazy"
       - "plymouth-theme-catppuccin-mocha-git"
       - "rate-mirrors-bin"
+      - "uwsm"
       - "visual-studio-code-bin"
       - "zsh-fast-syntax-highlighting-git"
-
   darwin:
     brews:
       - "bat"

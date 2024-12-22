@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
 ## Run
-rofi \
+uwsm app -- rofi \
     -show drun \
     -theme ~/.config/rofi/launchers/style.rasi

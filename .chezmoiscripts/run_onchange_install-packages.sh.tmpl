@@ -61,6 +61,10 @@ sudo mkdir -p /etc/sddm.conf.d
 echo -e '[Theme]\nCurrent=catppuccin-mocha' | sudo tee /etc/sddm.conf.d/settings.conf
 sudo cp -r $HOME/.local/share/chezmoi/dot_local/share/sddm/themes/catppuccin-mocha /usr/share/sddm/themes/
 
+# Set Hyprland desktop entry Exec flag
+echo -e "\n########## Setting Hyprland desktop entry Exec flag ##########"
+sudo sed -i.bak 's|^Exec=uwsm start -- hyprland.desktop|Exec=uwsm start -s -- hyprland.desktop|' /usr/share/wayland-sessions/hyprland-uwsm.desktop
+
 # Activate services
 echo "########## Final Setup ##########"
 # enable services

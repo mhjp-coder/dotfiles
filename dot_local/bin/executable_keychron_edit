@@ -16,7 +16,7 @@ read -p "Please enter ID of your keyboard (Default: 1): " hidraw_id
 sudo chmod a+rw /dev/hidraw${hidraw_id:-1}
 
 [[ -e $(command -v chromium) ]] && \
-chromium --app=https://usevia.app/ --enable-features=UseOzonePlatform --ozone-platform=wayland || \
+uwsm app -- chromium --app=https://usevia.app/ --enable-features=UseOzonePlatform --ozone-platform=wayland || \
 echo "Chromium not found. Please install it."
 
 sudo chmod a-rw /dev/hidraw${hidraw_id:-1}
