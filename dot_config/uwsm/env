@@ -1,5 +1,3 @@
-export UWSM_USE_SESSION_SLICE=true
-
 export XCURSOR_THEME=Colloid-dark-cursors
 export XCURSOR_SIZE=24
 export XCURSOR_PATH=$HOME/.local/share/icons:$XCURSOR_PATH

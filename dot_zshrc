@@ -4,19 +4,6 @@
 ## Shell Setup ##
 #################
 
-# Set $PATH if ~/.local/bin exist
-if [ -d "$HOME/.local/bin" ]; then
-  typeset -U path PATH
-  path=($HOME/.local/bin $path)
-  export PATH
-fi
-# Set $PATH if ~/go/bin exist
-if [ -d "$HOME/go/bin" ]; then
-  typeset -U path PATH
-  path=($HOME/go/bin $path)
-  export PATH
-fi
-
 # zsh config vars
 ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/"
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zhistory"

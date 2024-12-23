@@ -64,7 +64,8 @@ run_cmd() {
 			elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
 				i3-msg exit
 			elif [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
-				loginctl terminate-user ""
+				sudo systemctl restart sddm
+				loginctl terminate-session "$XDG_SESSION_ID"
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
 			fi

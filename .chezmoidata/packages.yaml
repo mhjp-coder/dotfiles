@@ -83,7 +83,7 @@ packages:
       - "ttf-noto-nerd"
       - "ttf-nerd-fonts-symbols-mono"
       - "ttf-nerd-fonts-symbols"
-      - "udisks2"
+      - "udiskie"
       - "unzip"
       - "usbutils"
       - "uv"
