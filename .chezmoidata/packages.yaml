@@ -47,8 +47,6 @@ packages:
       - "hyprpicker"
       - "kitty"
       - "libva-mesa-driver"
-      - "linux-lts-headers"
-      - "linux-lts"
       - "loupe"
       - "man"
       - "mesa-vdpau"
