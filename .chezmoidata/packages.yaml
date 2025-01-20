@@ -45,7 +45,6 @@ packages:
       - "hyprlock"
       - "hyprpaper"
       - "hyprpicker"
-
       - "kitty"
       - "libva-mesa-driver"
       - "loupe"
@@ -124,6 +123,7 @@ packages:
       - "fastfetch"
       - "fping"
       - "fzf"
+      - "ghostty"
       - "git"
       - "openssh"
       - "sqlite"
