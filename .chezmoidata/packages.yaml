@@ -45,6 +45,7 @@ packages:
       - "hyprlock"
       - "hyprpaper"
       - "hyprpicker"
+
       - "kitty"
       - "libva-mesa-driver"
       - "loupe"

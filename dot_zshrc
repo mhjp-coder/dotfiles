@@ -4,6 +4,34 @@
 ## Shell Setup ##
 #################
 
+# Zinit config
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+if [ ! -d $ZINIT_HOME ]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "${ZINIT_HOME}"
+fi
+
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Load zinit plugins
+zinit ice depth=1; zinit light
+
+
+
+# Set $PATH if ~/.local/bin exist
+if [ -d "$HOME/.local/bin" ]; then
+  typeset -U path PATH
+  path=($HOME/.local/bin $path)
+  export PATH
+fi
+# Set $PATH if ~/go/bin exist
+if [ -d "$HOME/go/bin" ]; then
+  typeset -U path PATH
+  path=($HOME/go/bin $path)
+  export PATH
+fi
+
 # zsh config vars
 ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/"
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zhistory"
