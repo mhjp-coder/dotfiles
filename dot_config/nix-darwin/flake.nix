@@ -36,6 +36,18 @@
         pkgs.fping
         pkgs.eza
         pkgs.bat
+        pkgs.nixfmt-rfc-style
+        pkgs.discord
+        pkgs.docker
+        pkgs.docker-buildx
+        pkgs.docker-compose
+        pkgs.nodejs
+        pkgs.nmap
+        pkgs.numi
+        pkgs.powershell
+        pkgs.raycast
+        pkgs.the-unarchiver
+        pkgs.wireshark
       ];
 
       # HomeBrew
@@ -45,10 +57,17 @@
           "mas"
         ];
         casks = [
-          "firefox"
-          "the-unarchiver"
-          "visual-studio-code"
           "ghostty"
+          "adobe-acrobat-reader"
+          "firefox"
+          "krita"
+          "microsoft-edge"
+          "microsoft-office"
+          "microsoft-remote-desktop"
+          "microsoft-teams"
+          "obsidian"
+          "visual-studio-code"
+          "vmware-fusion"
         ];
         masApps = {
           "WireGuard" = 1451685025;
@@ -58,7 +77,8 @@
 
       # Install Fonts.
       fonts.packages = [
-	pkgs.nerd-fonts.jetbrains-mono
+        pkgs.nerd-fonts.jetbrains-mono
+        pkgs.nerd-fonts.noto
       ];
 
       # enable packages
@@ -67,29 +87,29 @@
 
       # macos System Settings.
       system.defaults = {
-  	dock.autohide = true;
-  	dock.mru-spaces = false;
-	dock.show-recents = false;
-	dock.static-only = true;
-	dock.tilesize = 24;
-	dock.orientation = "right";
-	finder.ShowStatusBar = true;
-	finder.FXRemoveOldTrashItems = true;
-	finder.ShowPathbar = true;
-  	finder.CreateDesktop = false;
-	finder.AppleShowAllExtensions = true;
-  	finder.FXPreferredViewStyle = "clmv";
-  	loginwindow.LoginwindowText = "Darwin Nix";
-	loginwindow.GuestEnabled  = false;
-  	screencapture.location = "~/Pictures/screenshots";
-  	screensaver.askForPasswordDelay = 10;
-	trackpad.Clicking = true;
+        dock.autohide = true;
+        dock.mru-spaces = false;
+        dock.show-recents = false;
+        dock.static-only = true;
+        dock.tilesize = 24;
+        dock.orientation = "right";
+        finder.ShowStatusBar = true;
+        finder.FXRemoveOldTrashItems = true;
+        finder.ShowPathbar = true;
+        finder.CreateDesktop = false;
+        finder.AppleShowAllExtensions = true;
+        finder.FXPreferredViewStyle = "clmv";
+        loginwindow.LoginwindowText = "Darwin Nix";
+        loginwindow.GuestEnabled  = false;
+        screencapture.location = "~/Pictures/screenshots";
+        screensaver.askForPasswordDelay = 10;
+        trackpad.Clicking = true;
         trackpad.Dragging = true;
-	NSGlobalDomain.AppleICUForce24HourTime = false;
+        NSGlobalDomain.AppleICUForce24HourTime = false;
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain.KeyRepeat = 2;
-     	NSGlobalDomain."com.apple.trackpad.scaling" = 2.0;
-	controlcenter.BatteryShowPercentage = true;
+        NSGlobalDomain."com.apple.trackpad.scaling" = 2.0;
+        controlcenter.BatteryShowPercentage = true;
       };
       system.keyboard.enableKeyMapping = true;
       system.keyboard.remapCapsLockToEscape = true;
@@ -128,7 +148,6 @@
             enableRosetta = true;
             # User owning the Homebrew prefix
             user = "mparsons";
-
             autoMigrate = true;
           };
         }
