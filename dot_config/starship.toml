@@ -84,12 +84,11 @@ symbol  ="⋈┈"
 disabled=false
 
 [git_branch]
-format           =" [$branch(:$remote_branch)]($style)"
+format           ="[$branch(:$remote_branch)]($style)"
 symbol           ="[](bold italic bright-blue)"
 style            ="italic bright-blue"
 truncation_symbol="⋯"
 truncation_length=11
-ignore_branches  =[ "main", "master" ]
 only_attached    =true
 
 [git_metrics]
