@@ -1,5 +1,11 @@
 if status is-interactive
 
+    # Homebrew
+    if test -f "/opt/homebrew/bin/brew"
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    end
+
+    # Disable Greeting
     set fish_greeting
 
     # eza
@@ -55,10 +61,31 @@ if status is-interactive
     alias czd='chezmoi doctor'
     alias czf='chezmoi forget '
 
+    # Get fastest mirrors
+    alias drop-caches='sudo paccache -rk3; paru -Sc --aur --noconfirm'
+    alias update-mirrors='export TMPFILE="$(mktemp)"; \
+        sudo true; \
+        rate-mirrors --save=$TMPFILE arch --disable-comments-in-file --entry-country=CA --protocol=https --max-delay=7200 \
+        && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
+        && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
+        && drop-caches \
+        && paru -Syyu --noconfirm'
 
+    # Bat colorizing pager for help
+    alias -g -- -h='-h 2>&1 | bat --language=help --plain'
+    alias -g -- --help='--help 2>&1 | bat --language=help --plain'
+
+    # fzf
+    fzf --fish | source
+
+    # Zoxide
+    zoxide init --cmd cd fish | source
+
+    # Starship prompt
     function starship_transient_prompt_func
         starship module character
     end
     starship init fish | source
     enable_transience
+
 end
