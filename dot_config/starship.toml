@@ -3,37 +3,188 @@
 
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
-palette="catppuccin_mocha"
+palette            ="catppuccin_mocha"
+add_newline        =true
+continuation_prompt="[▸▹ ](dimmed white)"
 
-# Starship modules
-[character]
-# Note the use of Catppuccin color 'peach'
-success_symbol="[[λ](green) ❯](peach)"
-error_symbol  ="[[λ](red) ❯](peach)"
-vimcmd_symbol ="[λ ❮](subtext1)"       # For use with zsh-vi-mode
+format="""
+$username\
+$os\
+$hostname\
+$directory\
+[](rosewater) \
+$jobs\
+$cmd_duration\
+$sudo\
+$git_branch\
+$git_commit\
+$git_status\
+$docker_context\
+$character\
+"""
 
-[aws]
-style="peach"
-
-[cmd_duration]
-style="yellow"
-
-[directory]
-truncation_length=4
-style            ="bold green"
-
-[git_branch]
-style="pink"
-
-[git_status]
-style="red"
-
-[hostname]
-style="mauve"
+right_format="""
+$python\
+$golang\
+$rust\
+$lua\
+$c\
+$zig\
+$dart\
+$swift\
+$nodejs\
+$haskell\
+"""
 
 [username]
-format    ="[$user]($style) on "
-style_user="sapphire"
+format     ="[╭─$user]($style) "
+style_user ="bold green"
+style_root ="bold red"
+show_always=true
+
+[os]
+format  ="[$symbol](rosewater) "
+disabled=false
+
+[character]
+success_symbol="[╰─ ❯](bold green)"
+format        ="\n$symbol "
+error_symbol  ="[╰─](green)[ ❯](red)"
+vimcmd_symbol ="[╰─ ❯](dimmed green)"
+# not supported in zsh
+vimcmd_replace_one_symbol="R1"
+vimcmd_replace_symbol    ="R"
+vimcmd_visual_symbol     ="V"
+
+[hostname]
+ssh_only=false
+format  ="[$hostname](lavender) "
+
+[directory]
+home_symbol      ="󱂵 Home"
+truncation_symbol=" /"
+read_only        =" 󰌾"
+read_only_style  ="red"
+use_os_path_sep  =true
+style            ="italic peach"
+format           ="[$path]($style)[$read_only]($read_only_style) "
+
+[jobs]
+format="[$symbol $number](teal) [](rosewater) "
+symbol="[](sky)"
+
+[cmd_duration]
+format           ="[󱫭 $duration](green) [](rosewater) "
+show_milliseconds=true
+
+[sudo]
+format  ="[$symbol]($style) "
+style   ="bold italic bright-purple"
+symbol  ="⋈┈"
+disabled=false
+
+[git_branch]
+format           =" [$branch(:$remote_branch)]($style)"
+symbol           ="[](bold italic bright-blue)"
+style            ="italic bright-blue"
+truncation_symbol="⋯"
+truncation_length=11
+ignore_branches  =[ "main", "master" ]
+only_attached    =true
+
+[git_metrics]
+format           ='([▴$added]($added_style))([▿$deleted]($deleted_style))'
+added_style      ='italic dimmed green'
+deleted_style    ='italic dimmed red'
+ignore_submodules=true
+disabled         =false
+
+[git_status]
+style     ="bold italic bright-blue"
+format    ="([⎪$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed⎥]($style))"
+conflicted="[◪◦](italic bright-magenta)"
+ahead     ="[▴│[${count}](bold white)│](italic green)"
+behind    ="[▿│[${count}](bold white)│](italic red)"
+diverged  ="[◇ ▴┤[${ahead_count}](regular white)│▿┤[${behind_count}](regular white)│](italic bright-magenta)"
+untracked ="[◌◦](italic bright-yellow)"
+stashed   ="[◃◈](italic white)"
+modified  ="[●◦](italic yellow)"
+staged    ="[▪┤[$count](bold white)│](italic bright-cyan)"
+renamed   ="[◎◦](italic bright-blue)"
+deleted   ="[✕](italic red)"
+
+[python]
+format        =" [py](italic) [${symbol}${version}]($style)"
+symbol        ="[](bold bright-blue)⌊ "
+version_format="${raw}"
+style         ="bold bright-yellow"
+
+[rust]
+format        =" [rs](italic) [$symbol$version]($style)"
+symbol        ="󱘗 "
+version_format="${raw}"
+style         ="bold red"
+
+[golang]
+symbol=" "
+format=" go [$symbol($version )]($style)"
+
+[c]
+symbol=" "
+format=" [$symbol($version(-$name))]($style)"
+
+[haskell]
+symbol="❯λ "
+format=" hs [$symbol($version )]($style)"
+
+[lua]
+format        =" [lua](italic) [${symbol}${version}]($style)"
+version_format="${raw}"
+symbol        =" "
+style         ="bold bright-yellow"
+
+[dart]
+symbol=" "
+format=" dart [$symbol($version )]($style)"
+
+[swift]
+format        =" [sw](italic) [${symbol}${version}]($style)"
+symbol        =" "
+style         ="bold bright-red"
+version_format="${raw}"
+
+[nodejs]
+format           =" [node](italic) [ ($version)](bold bright-green)"
+version_format   ="${raw}"
+detect_files     =[ "package-lock.json", "yarn.lock" ]
+detect_folders   =[ "node_modules" ]
+detect_extensions=[  ]
+
+[zig]
+symbol=" "
+
+[docker_context]
+symbol=" "
+format=" docker [$symbol$context]($style)"
+
+[memory_usage]
+symbol="󰍛 "
+format=" mem [${ram}( ${swap})]($style)"
+
+[nix_shell]
+style      ='bold italic dimmed blue'
+symbol     =" "
+format     ='[$symbol nix⎪$state⎪]($style) [$name](italic dimmed white)'
+impure_msg ='[⌽](bold dimmed red)'
+pure_msg   ='[⌾](bold dimmed green)'
+unknown_msg='[◌](bold dimmed ellow)'
+
+[spack]
+symbol="◇ "
+format=" spack [$symbol$environment]($style)"
+
+[git_commit]
+tag_symbol='  '
 
 [palettes.catppuccin_mocha]
 rosewater="#f5e0dc"
@@ -62,3 +213,50 @@ surface0 ="#313244"
 base     ="#1e1e2e"
 mantle   ="#181825"
 crust    ="#11111b"
+
+[os.symbols]
+Alpaquita       =" "
+Alpine          =" "
+AlmaLinux       =" "
+Amazon          =" "
+Android         =" "
+Arch            =" "
+Artix           =" "
+CachyOS         =" "
+CentOS          =" "
+Debian          =" "
+DragonFly       =" "
+Emscripten      =" "
+EndeavourOS     =" "
+Fedora          =" "
+FreeBSD         =" "
+Garuda          ="󰛓 "
+Gentoo          =" "
+HardenedBSD     ="󰞌 "
+Illumos         ="󰈸 "
+Kali            =" "
+Linux           =" "
+Mabox           =" "
+Macos           =" "
+Manjaro         =" "
+Mariner         =" "
+MidnightBSD     =" "
+Mint            =" "
+NetBSD          =" "
+NixOS           =" "
+Nobara          =" "
+OpenBSD         ="󰈺 "
+openSUSE        =" "
+OracleLinux     ="󰌷 "
+Pop             =" "
+Raspbian        =" "
+Redhat          =" "
+RedHatEnterprise=" "
+RockyLinux      =" "
+Redox           ="󰀘 "
+Solus           ="󰠳 "
+SUSE            =" "
+Ubuntu          =" "
+Unknown         =" "
+Void            =" "
+Windows         ="󰍲 "
