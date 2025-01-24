@@ -115,6 +115,6 @@
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 300,
-    "on-click": "kitty -e paru && dunstify --appname='Arch Updates' 'The system has been updated'"
+    "on-click": "ghostty -e paru && dunstify --appname='Arch Updates' 'The system has been updated'"
   }
 }

@@ -1,4 +1,0 @@
-#!/usr/bin/zsh
-
-# Start fish shell
-exec fish

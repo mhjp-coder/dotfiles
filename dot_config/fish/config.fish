@@ -1,9 +1,7 @@
 if status is-interactive
 
     # Homebrew
-    if test -f "/opt/homebrew/bin/brew"
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    end
+    test -e /opt/homebrew/bin/brew; and eval (/opt/homebrew/bin/brew shellenv)
 
     # Disable Greeting
     set fish_greeting
@@ -16,34 +14,31 @@ if status is-interactive
     alias lt='eza --tree $eza_params --level 3'
     alias tree='eza --tree $eza_params --level 3'
 
+    # Vim
+    alias vim='nvim'
+    alias vi='nvim'
+    alias v='nvim'
+
     # ip
     alias ip='ip -c'
-    alias ipbr='ip -br -c addr show'
-
-    # virtualenv
-    alias aenv='source .venv/bin/activate'
-    alias denv='deactivate'
+    alias showip='ip -br -c addr show'
 
     # Python
     alias uvi='uv init'
     alias uvs='uv sync'
-    alias uvp='uv pip'
+    alias uva='uv add'
+    alias uvr='uv remove'
 
     # Misc
     alias cat='bat'
     alias zd='z $HOME/Developer'
-    alias sc='source $HOME/.zshrc'
-    alias c='clear'
-    alias fixpacman='sudo rm /var/lib/pacman/db.lck'
+    alias sc='$HOME/.config/fish/config.fish | source'
     alias tarnow='tar -acf '
     alias untar='tar -zxvf '
-    alias wget='wget -c '
-    alias rmpkg='sudo pacman -Rcns '
+    alias fixpacman='sudo rm /var/lib/pacman/db.lck'
+    alias rmpkg='paru -Rcns '
     alias psmem='ps auxf | sort -nr -k 4'
     alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-    alias ..='cd ..'
-    alias ...='cd ../..'
-    alias ....='cd ../../..'
     alias grep='grep --color=auto'
     alias fgrep='grep -F --color=auto'
     alias egrep='grep -E --color=auto'
@@ -61,31 +56,49 @@ if status is-interactive
     alias czd='chezmoi doctor'
     alias czf='chezmoi forget '
 
-    # Get fastest mirrors
-    alias drop-caches='sudo paccache -rk3; paru -Sc --aur --noconfirm'
-    alias update-mirrors='export TMPFILE="$(mktemp)"; \
-        sudo true; \
-        rate-mirrors --save=$TMPFILE arch --disable-comments-in-file --entry-country=CA --protocol=https --max-delay=7200 \
-        && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
-        && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
-        && drop-caches \
-        && paru -Syyu --noconfirm'
-
-    # Bat colorizing pager for help
-    alias -g -- -h='-h 2>&1 | bat --language=help --plain'
-    alias -g -- --help='--help 2>&1 | bat --language=help --plain'
-
     # fzf
-    fzf --fish | source
+    eval (fzf --fish)
 
     # Zoxide
-    zoxide init --cmd cd fish | source
+    eval (zoxide init --cmd cd fish)
+
+    # Evaluate keychain
+    SHELL=/bin/fish keychain --eval --quiet -Q id_ed25519 | source
 
     # Starship prompt
     function starship_transient_prompt_func
         starship module character
     end
-    starship init fish | source
+
+    eval (starship init fish)
     enable_transience
+
+    # Fastfetch
+    fastfetch
+
+    # # With out this Starship shifts the prompt over 2 chars when pressing tab.
+    # export LC_ALL="en_CA.UTF-8"
+
+    # # eza (ls replacement)
+    # export eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--group')
+
+    # # FZF
+    # export FZF_DEFAULT_OPTS=" \
+    # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+    # --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+    # --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+    # --color=selected-bg:#45475a \
+    # --multi"
+
+
+    # # Bat colorizing pager for manpages
+    # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    # export MANROFFOPT="-c"
+
+    # # Bun
+    # if [ -d "$HOME/.local/share/reflex/bun" ]; then
+    #     export BUN_INSTALL="$HOME/.local/share/reflex/bun"
+    #     export PATH="$BUN_INSTALL/bin:$PATH"
+    # fi
 
 end

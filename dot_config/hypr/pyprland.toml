@@ -3,6 +3,6 @@ plugins=[ "scratchpads" ]
 
 [scratchpads.term]
 animation="fromTop"
-command  ="kitty --class kitty-dropterm"
-class    ="kitty-dropterm"
+command  ="ghostty --class ghostty-dropterm"
+class    ="ghostty-dropterm"
 size     ="60% 50%"
