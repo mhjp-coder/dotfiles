@@ -2,6 +2,12 @@
 # Aliases in fish are defined as functions in the ~/.config/fish/functions/ directory
 # fish has a built in alias command that is used to create the functions.
 
+# Whan adding a new alias, make sure to update chezmoi to track the new files
+# chezmoi add ~/.config/fish/functions/alias.fish
+#
+# You can add the alias by running it in the terminal and appending --save
+# alias ll 'ls -l' --save
+
 # eza
 alias l         'eza --header $eza_params'
 alias ll        'eza --header --long $eza_params'
