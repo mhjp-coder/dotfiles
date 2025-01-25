@@ -1,3 +1,5 @@
 theme = catppuccin-mocha
-font-size = 16
+font-size = 18
 window-save-state = always
+background-opacity = 0.9
+background-blur-radius = 8

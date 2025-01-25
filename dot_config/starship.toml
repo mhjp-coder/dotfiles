@@ -4,21 +4,14 @@
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
 palette="catppuccin_mocha"
-add_newline=true
+
+# Layout the prompt with custom format
+# Missing \ at the end of some lines is intentional, the \ escapes the linebroak.
 format="""
 $username\
 $os\
 $hostname\
-[](rosewater) \
-$directory\
-[](rosewater) \
-$direnv\
-$jobs\
-$sudo\
-$fill\
-$git_branch\
-$git_status\
-$docker_context\
+$directory
 $python\
 $golang\
 $rust\
@@ -29,18 +22,51 @@ $dart\
 $swift\
 $nodejs\
 $haskell\
+$git_branch\
+$git_status
+$sudo\
 $character\
 """
 
 right_format="""
 $cmd_duration\
+$jobs\
+$direnv\
+$docker_context\
 """
 
+#################
+## Prompt Line ##
+#################
+# sudo and Prompt character
+
+[sudo]
+format  ="[$symbol]($style) "
+style   ="italic mauve"
+symbol  ="󱦚"
+disabled=false
+
+[character]
+format        ="$symbol "
+success_symbol="[ ❯](green)"
+error_symbol  ="[ ❯](red)"
+vimcmd_symbol ="[ ❯](sky)"
+# not supported in zsh
+vimcmd_replace_one_symbol="R1"
+vimcmd_replace_symbol    ="R"
+vimcmd_visual_symbol     ="V"
+
+################
+##  Line one  ##
+################
+# User, OS, Hostname, and Directory
+
 [username]
-format     ="[╭─$user]($style) "
+format     ="[$user]($style) "
 style_user ="italic green"
 style_root ="italic red"
 show_always=true
+disabled   =false
 
 [os]
 format  ="[$symbol](rosewater) "
@@ -49,6 +75,7 @@ disabled=false
 [hostname]
 format  ="[$hostname](lavender) "
 ssh_only=false
+disabled=false
 
 [directory]
 format           ="[$path]($style)[$read_only]($read_only_style) "
@@ -58,35 +85,95 @@ read_only        =" 󰌾"
 read_only_style  ="red"
 use_os_path_sep  =true
 style            ="italic peach"
+disabled         =false
 
-[direnv]
-format      ="[$symbol.env(rc)]($style) [](rosewater) "
-symbol      =" "
-style       ="italic yellow"
-detect_files=[ ".envrc", ".env" ]
-disabled    =false
+# Line Break here
 
-[jobs]
-format="[$symbol $number bg jobs]($style) [](rosewater) "
-symbol=" "
-style ="italic teal"
+################
+##  Line two  ##
+################
+# Language versions, tools, and git.
 
-[sudo]
-format  ="[$symbol]($style) [](rosewater) "
-style   ="italic mauve"
-symbol  ="⋈"
-disabled=false
+[python]
+format        ='[(${symbol}(${version} \($virtualenv\)))]($style) '
+symbol        =" "
+version_format="${raw}"
+style         ="italic teal"
+disabled      =false
 
-[fill]
-symbol=" "
+[golang]
+format        ="[$symbol$version]($style) "
+symbol        =" "
+version_format="${raw}"
+style         ="italic sky"
+disabled      =false
+
+[rust]
+format        ="[$symbol$version]($style) "
+symbol        ="󱘗 "
+version_format="${raw}"
+style         ="italic maroon"
+disabled      =false
+
+[lua]
+format        ="[$symbol$version]($style) "
+symbol        =" "
+version_format="${raw}"
+style         ="italic peach"
+disabled      =false
+
+[c]
+format        ="[$symbol$version]($style) "
+symbol        =" "
+version_format="${raw}"
+style         ="italic flamingo"
+disabled      =false
+
+[zig]
+format        ="[$symbol$version]($style) "
+symbol        =" "
+version_format="${raw}"
+style         ="italic flamingo"
+disabled      =false
+
+[dart]
+format        ="[$symbol$version]($style) "
+symbol        =" "
+version_format="${raw}"
+style         ="italic sapphire"
+disabled      =false
+
+[swift]
+format        ="[$symbol$version]($style) "
+symbol        =" "
+version_format="${raw}"
+style         ="italic red"
+disabled      =false
+
+[nodejs]
+format        ="[$symbol$version]($style) "
+symbol        =" "
+version_format="${raw}"
+style         ="italic green"
+detect_files  =[ "package-lock.json", "yarn.lock" ]
+detect_folders=[ "node_modules" ]
+disabled      =false
+
+[haskell]
+format        ="[$symbol$version]($style) "
+symbol        ="❯λ "
+version_format="${raw}"
+style         ="italic yellow"
+disabled      =false
 
 [git_branch]
-format           ="[$symbol]($style)[$branch:$remote_branch]($style) [](rosewater) "
+format           ="[$symbol]($style)[$branch:$remote_branch]($style) "
 symbol           =" "
 style            ="italic yellow"
 truncation_symbol="⋯"
 truncation_length=8
 only_attached    =true
+disabled         =false
 
 [git_status]
 format    ="[$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted]($style) "
@@ -99,68 +186,29 @@ untracked =" $count untracked [](rosewater) "
 renamed   =" $count renamed [](rosewater) "
 deleted   =" $count deleted [](rosewater) "
 conflicted="󰦦 $count conflict [](rosewater) "
+disabled  =false
 
-[python]
-format        ="[$symbol$version]($style) "
-symbol        =" "
-version_format="${raw}"
-style         ="italic teal"
+####################
+##  Right prompt  ##
+####################
 
-[rust]
-format        ="[$symbol$version]($style) "
-symbol        ="󱘗 "
-version_format="${raw}"
-style         ="italic maroon"
+[cmd_duration]
+format           ="[󱫭 $duration](green)"
+show_milliseconds=true
+disabled         =false
 
-[golang]
-format        ="[$symbol$version]($style) "
-symbol        =" "
-version_format="${raw}"
-style         ="italic sky"
+[jobs]
+format  ="[$symbol $number bg jobs]($style) "
+symbol  =" "
+style   ="italic teal"
+disabled=false
 
-[c]
-format        ="[$symbol$version]($style) "
-symbol        =" "
-version_format="${raw}"
-style         ="italic flamingo"
-
-[haskell]
-format        ="[$symbol$version]($style) "
-symbol        ="❯λ "
-version_format="${raw}"
-style         ="italic yellow"
-
-[lua]
-format        ="[$symbol$version]($style) "
-symbol        =" "
-version_format="${raw}"
-style         ="italic peach"
-
-[dart]
-format        ="[$symbol$version]($style) "
-symbol        =" "
-version_format="${raw}"
-style         ="italic sapphire"
-
-[swift]
-format        ="[$symbol$version]($style) "
-symbol        =" "
-version_format="${raw}"
-style         ="italic red"
-
-[nodejs]
-format        ="[$symbol$version]($style) "
-symbol        =" "
-version_format="${raw}"
-style         ="italic green"
-detect_files  =[ "package-lock.json", "yarn.lock" ]
-detect_folders=[ "node_modules" ]
-
-[zig]
-format        ="[$symbol$version]($style) "
-symbol        =" "
-version_format="${raw}"
-style         ="italic flamingo"
+[direnv]
+format      ="[$symbol.env(rc)]($style) "
+symbol      =" "
+style       ="italic yellow"
+detect_files=[ ".envrc", ".env" ]
+disabled    =false
 
 [docker_context]
 format="[$symbol$context]($style) "
@@ -175,19 +223,9 @@ detect_files=[
 ]
 disabled=false
 
-[character]
-format        ="\n$symbol "
-success_symbol="[╰─ ❯](green)"
-error_symbol  ="[╰─](green)[ ❯](red)"
-vimcmd_symbol ="[╰─ ❯](dimmed green)"
-# not supported in zsh
-vimcmd_replace_one_symbol="R1"
-vimcmd_replace_symbol    ="R"
-vimcmd_visual_symbol     ="V"
-
-[cmd_duration]
-format           ="[󱫭 $duration](green)"
-show_milliseconds=true
+################
+##  Palettes  ##
+################
 
 [palettes.catppuccin_mocha]
 rosewater="#f5e0dc"
@@ -216,6 +254,10 @@ surface0 ="#313244"
 base     ="#1e1e2e"
 mantle   ="#181825"
 crust    ="#11111b"
+
+##################
+##  OS Symbols  ##
+##################
 
 [os.symbols]
 Alpaquita       =" "

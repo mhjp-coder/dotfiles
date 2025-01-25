@@ -15,7 +15,7 @@ fi
 
 # Prompt the user to enter a username
 echo
-read -p "Please Enter the GitHub username to get the dot files from: " git_hub_username
+read -p "Please Enter the GitHub username to get the Chezmoi dotfiles from: " git_hub_username
 
 # Get the current user
 who_am_i=$(whoami)
@@ -30,7 +30,7 @@ pacman_setup() {
 # Install packages needed to setup the system
 install_needed_pkgs() {
     echo -e "\n##########   Installing packages needed for setup   ##########"
-    sudo pacman -S --noconfirm --needed base-devel chezmoi git rust zsh
+    sudo pacman -S --noconfirm --needed base-devel chezmoi git rust fish
 }
 
 # Add user to sudoers NOPASSWD
@@ -68,12 +68,6 @@ update_mirrorlist() {
     rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist
 }
 
-# Set the default shell to zsh
-set_default_shell() {
-    echo -e "\n##########   Setting default shell to zsh   ##########"
-    sudo chsh -s $(which zsh) $who_am_i
-}
-
 # Lets get started with the system setup
 if [[ "$(uname)" == "Linux" ]]; then
     DISTRO=$(grep '^ID=' /etc/os-release | cut -d'=' -f2)
@@ -91,8 +85,6 @@ if [[ "$(uname)" == "Linux" ]]; then
         install_paru
         # Update mirrorlist
         update_mirrorlist
-        # Set default shell to zsh
-        set_default_shell
     else
         echo -e "\nThis script is intended for Arch Linux."
         exit 1

@@ -1,4 +1,8 @@
 #!/usr/bin/bash
+# This script is used to enable the Keychron keyboard to work with the VIA software.
+# The script will ask for the ID of the keyboard and then enable the device for read and write access.
+# After that, it will launch the VIA software in a Chromium browser window.
+# The script will then disable read and write access to the device on close.
 
 
 FILES=/dev/hidraw*

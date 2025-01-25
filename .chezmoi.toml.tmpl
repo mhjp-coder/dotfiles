@@ -2,7 +2,7 @@
 {{- $choices := list "work" "home" -}}
 {{- $machine_location := promptChoiceOnce . "machine_location" "Machine Location" $choices -}}
 {{- $name := promptStringOnce . "name" "Name for Git commits" -}}
-{{- $git_hub_username := promptStringOnce . "git_hub_username" "Username for GitHub" -}}
+{{- $git_hub_username := promptStringOnce . "git_hub_username" "Your GitHub Username" -}}
 
 
 [data]

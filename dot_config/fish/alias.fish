@@ -1,11 +1,11 @@
 
     # eza
     alias l         'eza --header $eza_params'
-    alias ll        'eza --header --long $eza_params'
-    alias ls        'eza --all --header --long $eza_params'
-    alias la        'eza -lbhHigUmuSa'
-    alias lt        'eza --tree $eza_params --level 3'
-    alias tree      'eza --tree $eza_params --level 3'
+    alias ll 'eza --header --long $eza_params' --save
+    alias ls 'eza --all --header --long $eza_params' --save
+    alias la 'eza -lbhHigUmuSa' --save
+    alias lt 'eza --tree $eza_params --level 3' --save
+    alias tree 'eza --tree $eza_params --level 3' --save
 
     # Git
     alias gs        'git'
