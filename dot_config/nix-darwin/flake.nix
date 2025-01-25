@@ -48,6 +48,7 @@
         pkgs.raycast
         pkgs.the-unarchiver
         pkgs.wireshark
+        pkgs.fastfetch
       ];
 
       # HomeBrew

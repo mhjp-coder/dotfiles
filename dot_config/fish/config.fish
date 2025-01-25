@@ -9,12 +9,7 @@ if status is-interactive
     # Zoxide
     eval (zoxide init --cmd cd fish)
 
-    # source aliases
-    ~/.config/fish/alias.fish | source
-
-    # source functions
-    ~/.config/fish/functions.fish | source
-
+    # Starship Prompt
     eval (starship init fish)
     enable_transience
 
