@@ -16,13 +16,7 @@ if status is-interactive
     # # Fastfetch
     # fastfetch
 
-    # # With out this Starship shifts the prompt over 2 chars when pressing tab.
-    # export LC_ALL="en_CA.UTF-8"
-
     # # eza (ls replacement)
-    # zsh
-    # export eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--group')
-    # fish
     set -x eza_params --git --icons --classify --group-directories-first --group
 
     # FZF
