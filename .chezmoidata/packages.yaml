@@ -30,6 +30,7 @@ packages:
       - "geary"
       - "ghostty"
       - "git"
+      - "git-delta"
       - "gnome-calculator"
       - "gnome-font-viewer"
       - "gnome-keyring"

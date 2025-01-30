@@ -21,12 +21,15 @@ if status is-interactive
 
     # FZF
     eval (fzf --fish)
-    set -x FZF_DEFAULT_OPTS \
-    "--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-    --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-    --color=selected-bg:#45475a
-    --multi"
+    set -x FZF_DEFAULT_OPTS "\
+        --preview 'fzf-preview.sh {}' \
+        --preview-window 'right:60%' \
+        --height=50% \
+        --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+        --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+        --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+        --color=selected-bg:#45475a \
+        --multi"
 
     # # Bat colorizing pager for manpages
     set -x MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
