@@ -29,8 +29,8 @@ if status is-interactive
     --multi"
 
     # # Bat colorizing pager for manpages
-    # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-    # export MANROFFOPT="-c"
+    set -x MANPAGER sh -c 'col -bx | bat -l man -p'
+    set -x MANROFFOPT -c
 
     # # Bun
     # if [ -d "$HOME/.local/share/reflex/bun" ]; then

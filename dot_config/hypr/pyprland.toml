@@ -2,7 +2,7 @@
 plugins=[ "scratchpads" ]
 
 [scratchpads.term]
-animation="fromTop"
-command  ="ghostty --class ghostty-dropterm"
-class    ="ghostty-dropterm"
+animation="fromBottom"
+command  ="ghostty --class=com.mitchellh.ghostty.dropterm"
+class    ="com.mitchellh.ghostty.dropterm"
 size     ="60% 50%"

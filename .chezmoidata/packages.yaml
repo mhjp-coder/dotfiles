@@ -75,6 +75,7 @@ packages:
       - "qt5-quickcontrols2"
       - "qt6-svg"
       - "qt6-declarative"
+      - "ripgrep"
       - "rofi-wayland"
       - "rust"
       - "sddm"
