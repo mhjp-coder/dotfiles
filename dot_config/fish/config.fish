@@ -29,13 +29,11 @@ if status is-interactive
     --multi"
 
     # # Bat colorizing pager for manpages
-    set -x MANPAGER sh -c 'col -bx | bat -l man -p'
-    set -x MANROFFOPT -c
+    set -x MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
-    # # Bun
-    # if [ -d "$HOME/.local/share/reflex/bun" ]; then
-    #     export BUN_INSTALL="$HOME/.local/share/reflex/bun"
-    #     export PATH="$BUN_INSTALL/bin:$PATH"
-    # fi
-
+    # Bun
+    if test -d "$HOME/.local/share/reflex/bun"
+        set -x BUN_INSTALL "$HOME/.local/share/reflex/bun"
+        fish_add_path $BUN_INSTALL/bin
+    end
 end

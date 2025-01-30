@@ -58,7 +58,6 @@ packages:
       - "nmap"
       - "nodejs"
       - "npm"
-      - "nwg-clipman"
       - "nwg-icon-picker"
       - "nwg-look"
       - "obsidian"

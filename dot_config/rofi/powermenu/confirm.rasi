@@ -10,6 +10,7 @@ configuration {
 
 /*****----- Main Window -----*****/
 window {
+    font:                        var(font-16);
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
