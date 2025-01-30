@@ -39,7 +39,7 @@ alias fixpacman 'sudo rm /var/lib/pacman/db.lck'
 alias rmpkg     'paru -Rcns '
 alias psmem     'ps auxf | sort -nr -k 4'
 alias psmem10   'ps auxf | sort -nr -k 4 | head -10'
-alias grep      'ripgrep'
+alias grep      'rg'
 alias hw        'hwinfo --short'
 
 # Chezmoi
