@@ -27,7 +27,7 @@ keybind = global:super+z=toggle_quick_terminal
 keybind = ctrl+shift+w=close_surface
 keybind = ctrl+shift+d=toggle_window_decorations
 ## Tabs
-keybind = ctrl+t=new_tab
+keybind = ctrl+e=new_tab
 keybind = ctrl+n=next_tab
 keybind = ctrl+p=previous_tab
 keybind = ctrl+1=goto_tab:1
