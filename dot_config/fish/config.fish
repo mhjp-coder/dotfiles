@@ -3,13 +3,6 @@ if status is-interactive
     # Disable Greeting
     set fish_greeting
 
-    # Zoxide
-    eval (zoxide init --cmd cd fish)
-
-    # Starship Prompt
-    eval (starship init fish)
-    enable_transience
-
     # Homebrew
     test -e /opt/homebrew/bin/brew; and eval (/opt/homebrew/bin/brew shellenv)
 
@@ -20,7 +13,7 @@ if status is-interactive
     set -x eza_params --git --icons --classify --group-directories-first --group
 
     # FZF
-    eval (fzf --fish)
+    fzf --fish | source
     set -x FZF_DEFAULT_OPTS "\
         --preview 'fzf-preview.sh {}' \
         --preview-window 'right:60%' \
@@ -43,5 +36,14 @@ if status is-interactive
     # Direnv
     set -g direnv_fish_mode eval_on_arrow
     direnv hook fish | source
+
+    # Zoxide
+    zoxide init fish --cmd cd | source
+
+    # Starship Prompt
+    starship init fish | source
+    enable_transience
+
+
 
 end
