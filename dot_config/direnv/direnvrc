@@ -1,16 +1,18 @@
-layout_uv() {
-    if [[ -d ".venv" ]]; then
-        VIRTUAL_ENV="$(pwd)/.venv"
-    fi
+function use_standard-python() {
+    # Load the .env file if it exists
+    dotenv_if_exists
+    # Load the .envrc.local file if it exists
+    # This is for extra config, .envrc is still loaded by default
+    source_env_if_exists .envrc.local
+    # Load the venv and create it if it doesn't exist
+    use_venv
+    # use update project packages with UV
+    #uv sync
+}
 
-    if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
-        log_status "No uv project exists. Executing \`uv init\` to create one."
-        uv init
+function use_venv() {
+    if [ ! -d .venv ]; then
         uv venv
-        VIRTUAL_ENV="$(pwd)/.venv"
     fi
-
-    PATH_add "$VIRTUAL_ENV/bin"
-    export UV_ACTIVE=1
-    export VIRTUAL_ENV
+    source .venv/bin/activate
 }

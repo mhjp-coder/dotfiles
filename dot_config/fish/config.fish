@@ -39,4 +39,9 @@ if status is-interactive
         set -x BUN_INSTALL "$HOME/.local/share/reflex/bun"
         fish_add_path $BUN_INSTALL/bin
     end
+
+    # Direnv
+    set -g direnv_fish_mode eval_on_arrow
+    direnv hook fish | source
+
 end
