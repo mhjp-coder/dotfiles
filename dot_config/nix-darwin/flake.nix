@@ -72,6 +72,7 @@
         ];
         masApps = {
           "WireGuard" = 1451685025;
+          "Bumpr" = 1166066070;
         };
         onActivation.cleanup = "zap";
       };
