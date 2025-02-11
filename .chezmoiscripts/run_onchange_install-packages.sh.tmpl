@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 ###########
 ## linux ##
@@ -94,5 +94,9 @@ bat cache --build
 echo -e \
 '\n########## Install Complete ##########
 You should now reboot your system to apply changes.'
+
+{{ end -}}
+
+{{ if eq .chezmoi.os "darwin" -}}
 
 {{ end -}}
