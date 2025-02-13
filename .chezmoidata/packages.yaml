@@ -25,7 +25,6 @@ packages:
       - "dunst"
       - "evince"
       - "eza"
-      - "fastfetch"
       - "firefox"
       - "fish"
       - "fzf"
