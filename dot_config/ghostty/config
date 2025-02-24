@@ -22,7 +22,7 @@ keybind = ctrl+left=resize_split:left,20
 keybind = ctrl+up=resize_split:up,20
 keybind = ctrl+down=resize_split:down,20
 ## Quick Terminal, Only works on macOS
-keybind = global:super+z=toggle_quick_terminal
+keybind = global:super+ctrl+z=toggle_quick_terminal
 ## Misc
 keybind = ctrl+shift+w=close_surface
 keybind = ctrl+shift+d=toggle_window_decorations
