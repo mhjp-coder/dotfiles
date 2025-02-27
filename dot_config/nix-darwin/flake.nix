@@ -69,6 +69,7 @@
           "obsidian"
           "visual-studio-code"
           "vmware-fusion"
+          "ticktick"
         ];
         masApps = {
           "WireGuard" = 1451685025;
