@@ -49,6 +49,7 @@
         pkgs.the-unarchiver
         pkgs.wireshark
         pkgs.fastfetch
+        pkgs.sshpass
       ];
 
       # HomeBrew
