@@ -12,6 +12,18 @@
   let
     configuration = { pkgs, config, ... }: {
 
+      # Determinate uses its own daemon to manage the Nix installation that
+      # conflicts with nix-darwin’s native Nix management.
+
+      # To turn off nix-darwin’s management of the Nix installation, set:
+
+      # This will allow you to use nix-darwin with Determinate. Some nix-darwin
+      # functionality that relies on managing the Nix installation, like the
+      # `nix.*` options to adjust Nix settings or configure a Linux builder,
+      # will be unavailable.
+
+      nix.enable = false;
+
       nixpkgs.config.allowUnfree = true;
       nixpkgs.config.allowBroken = true;
 
@@ -38,9 +50,6 @@
         pkgs.bat
         pkgs.nixfmt-rfc-style
         pkgs.discord
-        pkgs.docker
-        pkgs.docker-buildx
-        pkgs.docker-compose
         pkgs.nodejs
         pkgs.nmap
         pkgs.numi
@@ -57,6 +66,9 @@
         enable = true;
         brews = [
           "mas"
+          "docker"
+          "docker-compose"
+          "docker-buildx"
         ];
         casks = [
           "ghostty"
@@ -119,7 +131,7 @@
       system.keyboard.remapCapsLockToEscape = true;
 
       # Allow Fingerprint for sudo
-      security.pam.enableSudoTouchIdAuth = true;
+      security.pam.services.sudo_local.touchIdAuth = true;
 
       # User config
       users.users.mparsons.shell = pkgs.fish;
