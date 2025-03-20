@@ -67,6 +67,7 @@
         brews = [
           "mas"
           "docker"
+          "colima"
           "docker-compose"
           "docker-buildx"
         ];
