@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# linux
-##########################################
-# Configure New Arch Linux
-##########################################
+# This script is intended to be run on a fresh Arch Linux installation
+# or MacOS system to set up the environment with necessary packages and configurations.
+# It installs packages, sets up the system, and applies dotfiles using chezmoi.
+# It is not intended to be run as root.
+
 set -e
 
 # Check if the script is being run as root
@@ -29,8 +30,15 @@ pacman_setup() {
 
 # Install packages needed to setup the system
 install_needed_pkgs() {
+    local os=$1
     echo -e "\n##########   Installing packages needed for setup   ##########"
-    sudo pacman -S --noconfirm --needed base-devel chezmoi git rust fish
+    if [[ "$os" == "arch" ]]; then
+        echo -e "\n##########   Installing packages needed for arch   ##########"
+        sudo pacman -S --noconfirm --needed base-devel chezmoi git rust fish
+    elif [[ "$os" == "darwin" ]]; then
+        echo -e "\n##########   Installing packages needed for macOS   ##########"
+        brew install chezmoi git rust fish
+    fi
 }
 
 # Add user to sudoers NOPASSWD
@@ -43,6 +51,15 @@ add_user_to_sudoers() {
 disable_mkpkg_debug() {
     echo -e "\n##########   Disabling debug for makepkg   ##########"
     sudo sed -i '/^OPTIONS=.*\bdebug\b/s/\bdebug\b/!debug/' /etc/makepkg.conf
+}
+
+# Install Homebrew
+install_homebrew() {
+    if ! command -v brew 2>&1 >/dev/null
+    then
+        echo -e "\n########### Installing Homebrew ###########"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
 }
 
 # Install AUR helper paru
@@ -76,7 +93,7 @@ if [[ "$(uname)" == "Linux" ]]; then
         # Setup pacman
         pacman_setup
         # Install needed packages
-        install_needed_pkgs
+        install_needed_pkgs arch
         # Add user to sudoers
         add_user_to_sudoers
         # disable debug for makepkg
@@ -90,8 +107,12 @@ if [[ "$(uname)" == "Linux" ]]; then
         exit 1
     fi
 elif [[ "$(uname)" == "Darwin" ]]; then
-    #TODO: Add macOS setup
     echo -e "\nThis is a macOS system. Skipping linux setup."
+    # Check if Homebrew is installed
+    install_homebrew
+    # Install packages needed for setup
+    echo -e "\n##########   Installing packages needed for setup   ##########"
+    install_needed_pkgs darwin
 else
     echo -e "\nUnknown system. Not Arch Linux or macOS."
 fi
