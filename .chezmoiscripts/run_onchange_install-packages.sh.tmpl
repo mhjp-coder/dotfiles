@@ -99,4 +99,19 @@ You should now reboot your system to apply changes.'
 
 {{ if eq .chezmoi.os "darwin" -}}
 
+############
+## darwin ##
+############
+
+# Insatlling Homebrew packages
+echo -e "\n########## Install Homebrew packages ##########"
+brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.darwin.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+
 {{ end -}}
