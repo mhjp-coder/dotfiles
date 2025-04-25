@@ -140,7 +140,6 @@ packages:
       - "microsoft-teams"
       - "numi"
       - "obsidian"
-      - "powershell"
       - "raycast"
       - "the-unarchiver"
       - "ticktick"

@@ -114,4 +114,12 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 
+# Setup Fish shell
+echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/fish
+
+echo "fish_add_path /opt/homebrew/bin/" | fish
+echo "fish_update_completions" | fish
+
+
 {{ end -}}

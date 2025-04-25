@@ -1,0 +1,23 @@
+#
+# ~/.zshrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Add Homebrew's bin directory to PATH
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+
+# Load fish if running interactively
+# Check if fish is installed
+if command -v fish &> /dev/null
+then
+    # Check if fish is running
+    if [ -z "$FISH_VERSION" ]; then
+        # Check if fish is running interactively
+        if [ -z "$FISH_INTERACTIVE" ]; then
+            # Start fish shell
+            exec fish
+        fi
+    fi
+fi
