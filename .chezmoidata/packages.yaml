@@ -90,6 +90,7 @@ packages:
       - "unzip"
       - "usbutils"
       - "uv"
+      - "uwsm"
       - "vulkan-radeon"
       - "waybar"
       - "xdg-desktop-portal-gtk"
@@ -107,7 +108,6 @@ packages:
       - "imgcat"
       - "plymouth-theme-catppuccin-mocha-git"
       - "rate-mirrors-bin"
-      - "uwsm"
       - "visual-studio-code-bin"
   darwin:
     brews:

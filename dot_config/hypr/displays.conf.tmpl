@@ -2,12 +2,16 @@
 
 # Workspace config
 {{ if eq .machine_location "home" -}}
-monitor = DP-4, 2560x1440@165, 0x0, 1
-monitor = DP-5, 2560x1440@75, 2560x0, 1
+monitor = DP-1,     2560x1440@165,  2560x0, 1
+monitor = DP-2,     2560x1440@75,   0x0,    1
+monitor = HDMI-A-1, 1920x1080@60,   5120x0, 1
 {{ end -}}
-{{ if eq .machine_location "work" -}}
+
+{{ if eq .machine_location "bench" -}}
+monitor = DP-1,     1920x1080,      0x0,    1
 {{ end -}}
+
 {{ if eq .machine_location "work" -}}
-monitor = DP-2, 2560x1440@75, 0x0, 1
-monitor = DP-3, 2560x1440@75, 2560x0, 1
+monitor = DP-2,     2560x1440@75,   0x0,    1
+monitor = DP-3,     2560x1440@75,   2560x0, 1
 {{ end -}}
