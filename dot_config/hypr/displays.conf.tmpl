@@ -7,10 +7,6 @@ monitor = DP-2,     2560x1440@75,   0x0,    1
 monitor = HDMI-A-1, 1920x1080@60,   5120x0, 1
 {{ end -}}
 
-{{ if eq .machine_location "bench" -}}
-monitor = DP-1,     1920x1080,      0x0,    1
-{{ end -}}
-
 {{ if eq .machine_location "work" -}}
 monitor = DP-2,     2560x1440@75,   0x0,    1
 monitor = DP-3,     2560x1440@75,   2560x0, 1
