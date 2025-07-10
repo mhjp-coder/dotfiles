@@ -5,5 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Load fish if not running interactively
-if [ -z "$BASH_EXECUTION_STRING" ]; then exec fish; fi
+# Only use fish by default for login shells, not when bash is explicitly requested
+if [[ -z "$BASH_EXECUTION_STRING" && "$0" != *bash ]]; then
+    exec fish
+fi
