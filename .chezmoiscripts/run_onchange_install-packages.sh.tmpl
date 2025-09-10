@@ -38,7 +38,6 @@ sudo cp $HOME/.local/share/chezmoi/dot_config/plymouth/plymouth-wait-for-animati
 # Set default Cursor theme
 echo -e "\n########## Setting Cursor Theme ##########"
 [[ ! -d "$HOME/.local/share/icons" ]] && mkdir -p $HOME/.local/share/icons
-
 [[ ! -L "$HOME/.local/share/icons/default" && ! -d "$HOME/.local/share/icons/default" ]] && \
 ln -s /usr/share/icons/Colloid-dark-cursors $HOME/.local/share/icons/default
 gsettings set org.gnome.desktop.interface cursor-theme 'Colloid-dark-cursors'

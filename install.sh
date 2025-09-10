@@ -26,6 +26,8 @@ pacman_setup() {
     echo -e "\n##########   Setting up Pacman with color and parallel downloads   ##########"
     sudo sed -i '/^#Color/s/^#//' /etc/pacman.conf
     sudo sed -i '/^#ParallelDownloads = 5/s/^#//' /etc/pacman.conf
+    sudo sed -i '/^#[multilib]/s/^#//' /etc/pacman.conf
+    sudo sed -i '/^#Include = \/etc\/pacman.d\/mirrorlist/s/^#//' /etc/pacman.conf
 }
 
 # Install packages needed to setup the system
