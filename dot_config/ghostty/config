@@ -1,5 +1,6 @@
-theme = Catppuccin Mocha
+theme = catppuccin-mocha
 font-size = 18
+command = /usr/bin/fish
 window-save-state = always
 background-opacity = 0.93
 background-blur-radius = 20

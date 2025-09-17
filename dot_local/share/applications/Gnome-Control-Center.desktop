@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Gnome Control Center
+Comment=Run Control Center on Hyprland
+Type=Application
+Categories=Utility
+Icon=gnome-control-center
+Terminal=0
+Path=.local/bin/
+Exec=env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
