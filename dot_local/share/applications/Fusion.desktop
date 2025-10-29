@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Fusion (RemoteApp)
+Comment=Launch Fusion RemoteApp
+Exec=launch-remoteapp.sh Fusion
+Icon=application-acadi
+Terminal=false
+Path=.local/bin
+Categories=Network;RemoteAccess;

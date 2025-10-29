@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Safari (RemoteApp)
+Comment=Launch Safari RemoteApp
+Exec=launch-remoteapp.sh Safari
+Icon=web-browser
+Terminal=false
+Path=.local/bin
+Categories=Network;RemoteAccess;
