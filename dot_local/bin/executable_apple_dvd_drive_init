@@ -1,7 +1,0 @@
-#!/bin/bash
-# Apple USB DVD drive initialization script
-# This script is used to initialize the Apple USB DVD drive.
-# It is necessary to run this script after connecting the drive
-# to the system.
-
-sg_raw /dev/sr0 EA 00 00 00 00 00 01
